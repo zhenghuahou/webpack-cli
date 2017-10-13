@@ -1,0 +1,15 @@
+.DS_Store
+npm-debug.log
+node_modules/
+.vscode/
+
+.gulp
+.tmp
+.idea
+.settings
+.project
+*.log
+*.dat
+
+yarn.lock
+

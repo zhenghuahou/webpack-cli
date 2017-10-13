@@ -1,0 +1,20 @@
+{
+  "name": "webpack-demos",
+  "version": "0.0.1",
+  "author": "zhenghuahou",
+  "description": "",
+  "dependencies": {},
+  "license": "MIT",
+  "devDependencies": {
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
+    "webpack": "^3.7.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhenghuahou/webpack-demos"
+  },
+  "homepage": "https://github.com/zhenghuahou/webpack-demos",
+  "scripts": {
+    "unused": "webpack --config harmony-unused/webpack.config.js"
+  }
+}
