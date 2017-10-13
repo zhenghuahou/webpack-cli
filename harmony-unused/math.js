@@ -17,8 +17,11 @@ export function multiply() {
 }
 
 function test(){
-	console.log(' test fn');
+	var aa = 123;
+	console.log(' test fn!!!');
 }
+
+// test();//压缩后代码包含test代码,如果此行被注释掉，则压缩的代码不包含test 函数代码
 export function list() {
 	console.log(' list fn!!!');
 	return Array.from(arguments);
