@@ -69,10 +69,11 @@
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = add;
-/* harmony export (immutable) */ __webpack_exports__["b"] = multiply;
+/* unused harmony export multiply */
 /* unused harmony export list */
 function add() {
 	var sum = 0, i = 0, args = arguments, l = args.length;
+	console.log(' add fn');
 	while (i < l) {
 		sum += args[i++];
 	}
@@ -81,13 +82,18 @@ function add() {
 
 function multiply() {
 	var product = 1, i = 0, args = arguments, l = args.length;
+	console.log(' multiply fn');
 	while (i < l) {
 		product *= args[i++];
 	}
 	return product;
 }
 
+function test(){
+	console.log(' test fn');
+}
 function list() {
+	console.log(' list fn!!!');
 	return Array.from(arguments);
 }
 
@@ -102,8 +108,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-Object(__WEBPACK_IMPORTED_MODULE_0__math__["a" /* add */])(1, 2);
-__WEBPACK_IMPORTED_MODULE_1__library__["a" /* reexportedMultiply */](1, 2);
+console.dir(__WEBPACK_IMPORTED_MODULE_0__math__["a" /* add */]);
+// add(1, 2);
+// //add === library.reexportedAdd:true
+// console.log(' library:',library, 'de:',de,add === library.reexportedAdd);
+// library.reexportedMultiply(1, 2);
 
 /***/ }),
 /* 2 */
@@ -111,14 +120,21 @@ __WEBPACK_IMPORTED_MODULE_1__library__["a" /* reexportedMultiply */](1, 2);
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__abc__ = __webpack_require__(3);
-/* unused harmony reexport a */
+/* unused harmony reexport default */
 /* unused harmony reexport b */
 /* unused harmony reexport c */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__math__ = __webpack_require__(0);
 /* unused harmony reexport reexportedAdd */
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__math__["b"]; });
+/* unused harmony reexport reexportedMultiply */
 
 
+
+//压缩后的代码里面不会有b,c的代码,也不会有multiply代码
+
+
+console.warn(' b:',__WEBPACK_IMPORTED_MODULE_0__abc__["a" /* b */]);//压缩后的代码里面有b的代码
+// console.warn('c:',c);//Uncaught ReferenceError: c is not defined
+// console.warn(' reexportedMultiply:',reexportedMultiply) //Uncaught ReferenceError: reexportedMultiply is not defined
 
 /***/ }),
 /* 3 */
@@ -126,11 +142,11 @@ __WEBPACK_IMPORTED_MODULE_1__library__["a" /* reexportedMultiply */](1, 2);
 
 "use strict";
 /* unused harmony export a */
-/* unused harmony export b */
+/* harmony export (immutable) */ __webpack_exports__["a"] = b;
 /* unused harmony export c */
-function a() { console.log("a"); }
-function b() { console.log("b"); }
-function c() { console.log("c"); }
+function a() { console.log("a fn"); }
+function b() { console.log("b fn"); }
+function c() { console.log("c fn"); }
 
 /***/ })
 /******/ ]);

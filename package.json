@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/zhenghuahou/webpack-demos",
   "scripts": {
-    "unused": "webpack --config harmony-unused/webpack.config.js"
+    "unused": "webpack --config harmony-unused/webpack.config.js",
+    "unused:min": "webpack --config harmony-unused/webpack.config.min.js"
   }
 }
