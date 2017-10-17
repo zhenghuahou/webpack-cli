@@ -12,4 +12,5 @@ node_modules/
 *.dat
 
 yarn.lock
+dist 
 
