@@ -8,6 +8,8 @@
         "browsers": ['last 2 versions', 'iOS >= 7', 'Android >= 4.1'],
         "node": "current"
       },
+      //"modules": false 设置为false时,babel-preset-env还是会引入babel-plugin-transform-es2015-modules-commonjs 插件,所以"modules": false这样设置是多余的
+      //"modules"默认值为"commonjs"
       "modules": 'commonjs', //  webpack2 tree-shaking 还是起作用
       "loose": true
     }],
