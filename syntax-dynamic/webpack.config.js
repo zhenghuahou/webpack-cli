@@ -11,8 +11,10 @@ export default {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].bundle.js',
+    chunkFilename:'[name].[chunkhash:5].js',
     publicPath: ''
   },
+  stats:"verbose",
   plugins:[
     //  new UglifyJSPlugin()
     //  new webpack.optimize.UglifyJsPlugin({
