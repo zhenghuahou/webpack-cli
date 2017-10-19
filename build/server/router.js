@@ -4,11 +4,11 @@
 import config from '../../config'
 import ip from 'ip'
 
- let localIP = ip.address(), 
-     port = config.devServerPort;
+const localIP = ip.address();
+const port = config.devServerPort;
 
-var defaultConfig = {
-    title:'',
+const defaultConfig = {
+    title:'前端工作流',
     staticTag:'app',
     localIP:localIP,
     port:port
@@ -16,18 +16,9 @@ var defaultConfig = {
 
 //路由
 export default function(app){
-   
-    // app.get('/index/my',function(req, res){ 
-    //arguments 3个参数,第一个req,第二个参数 res 第三个参数next方法
-    //console.log('arguments------>',arguments,arguments[0]===app,arguments.length);
-    //匹配路径:http://10.7.248.201:9091/index/bind/
-    app.get('/index/bind',(req, res)=>{
-        res.render('./layouts/main',defaultConfig);
-    });
 
     app.get('/isLive.action', (req,res) => {
-        // console.log(' req:',req);
-        res.send('success');
+        res.send('success!');
     });
     
     //走通用模板
@@ -44,10 +35,6 @@ export default function(app){
     //所以通过中间件的形式对 /index/bind_xxx.js /a/b/demo.js这样的js文件进行过滤重定向到根目录
     //即访问 http://10.7.248.201:9091/index/bind_5126021.js会自动重定向到http://10.7.248.201:9091/bind_5126021.js
     app.use(/^([\w|\/]+)+\/(\w+)\.js$/,function(req,res,next) {
-         // console.log('request.originalUrl:',req.originalUrl);
-         // console.log('request.params:',req.params);
-         // console.log('request.path:',req.path);
-         // console.log('req.params[1]:',req.params[1]);
          if(req.params[1]){
             res.redirect(`/${req.params[1]}.js`);
          }

@@ -5,8 +5,6 @@ import ExtractTextPlugin from "extract-text-webpack-plugin";
 import chalk from "chalk";
 import path from "path";
 import ip from "ip";
-import autoprefixer from "autoprefixer";
-import postcssPxtorem from "postcss-pxtorem";
 import ManifestPlugin from "./plugins/manifest";
 import { timestamp } from "./util";
 import { entry, alias, provide, loader } from "./config";
@@ -21,16 +19,15 @@ const loaderOptions = {
 const loaders = cssLoaders(loaderOptions);
 const styleloaders = styleLoaders(loaderOptions);
 
-console.log(' cwd:',process.cwd(),' __dirname:',__dirname);
-//process.cwd()
-//Users/houzhenghua/workspace/static/qqd-wxent
+//process.cwd():Users/houzhenghua/github/webpack-demos
+//__dirname: /Users/houzhenghua/github/webpack-demos/build
 
 const config = {
     watch: true,
     entry: entry,
     // devtool: 'eval-source-map',
-    // devtool: 'cheap-module-eval-source-map',
-    devtool: "source-map",
+    // devtool: "source-map",
+    devtool: 'cheap-module-eval-source-map',
     output: {
         path: `${process.cwd()}/dist`,
         filename: "[name].js",
@@ -72,19 +69,19 @@ const config = {
     plugins: [
         new webpack.ProvidePlugin(provide),
         //进度条插件
-        new ProgressBarPlugin({
-            summary: false,
-            format: chalk.green.bold("[:bar] :percent ") +
-                chalk.yellow("(:elapsed seconds) :msg"),
-            customSummary(buildTime) {
-                process.stdout.write(
-                    chalk.cyan(timestamp()) +
-                        chalk.green.bold(
-                            " ---------buildTime:" + buildTime + "---------"
-                        )
-                );
-            }
-        }),
+        // new ProgressBarPlugin({
+        //     summary: false,
+        //     format: chalk.green.bold("[:bar] :percent ") +
+        //         chalk.yellow("(:elapsed seconds) :msg"),
+        //     customSummary(buildTime) {
+        //         process.stdout.write(
+        //             chalk.cyan(timestamp()) +
+        //                 chalk.green.bold(
+        //                     " ---------buildTime:" + buildTime + "---------"
+        //                 )
+        //         );
+        //     }
+        // }),
 
         // https://github.com/RoccoC/webpack-build-notifier
         new WebpackNotifierPlugin({

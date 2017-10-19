@@ -30,16 +30,21 @@ const webpackCompiler = webpack(webpackConfig)
 const devMiddleware = webpackDevMiddleware(webpackCompiler, {
     serverSideRender: true,
     publicPath: webpackCompiler.options.output.publicPath,
-    noInfo: true,
+    //`quiet: true` display nothing to the console
     quiet: false,
+    // `noInfo:true` display no info to console (only warnings and errors)
+    noInfo:true,
     stats: {
         colors: true,
-        hash: false,
+        hash: true,
         version: false,
-        timings: false,
+        timings: true,
         assets: false,
         chunks: false,
-        children: false
+        children: false,
+        chunkModules: false,
+        // Add details to errors (like resolving log)
+        errorDetails : true
     }
 })
 const hotMiddleware = webpackHotMiddleware(webpackCompiler, {
@@ -50,8 +55,6 @@ const devServer = express()
 
 devServer.use(devMiddleware)
 devServer.use(hotMiddleware)
-// devServer.use(serverMiddleware)
-
 
 // 设置模版引擎
 devServer.engine('.hbs', exphbs({
@@ -60,21 +63,11 @@ devServer.engine('.hbs', exphbs({
     layoutsDir:path.join(__dirname,'../server/views/layouts')
 }));
 devServer.set('view engine', '.hbs');
-
 devServer.set('views',path.join(__dirname,'../server/views'));
 
 
 //add router
-
 router(devServer);
-
-
-// // 代理API，可以在config/mine.js中修改成你想要的代理目标
-// devServer.use('/ailicai', httpProxyMiddleware({
-//     logLevel: 'silent',
-//     target: config.proxyTarget,
-//     changeOrigin: true
-// }))
 
 devServer.listen(config.devServerPort, function () {
     process.stdout.clearLine()
