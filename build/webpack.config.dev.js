@@ -1,7 +1,6 @@
 import webpack from "webpack";
 import ProgressBarPlugin from "progress-bar-webpack-plugin";
 import WebpackNotifierPlugin from "webpack-build-notifier";
-import ExtractTextPlugin from "extract-text-webpack-plugin";
 import chalk from "chalk";
 import path from "path";
 import ip from "ip";

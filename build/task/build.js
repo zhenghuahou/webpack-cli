@@ -12,7 +12,7 @@ webpackConfig.plugins.splice(webpackConfig.plugins.findIndex((p) => p instanceof
 
 webpackConfig.watch = true;
 // webpackConfig.output.publicPath = `http://${ip.address()}/qqd-wxent/`;
-
+console.log('output.publicPath:',webpackConfig.output.publicPath);
 webpack(webpackConfig, function(err, stats) {
     // console.log(' stats:',stats);
     if (err) {

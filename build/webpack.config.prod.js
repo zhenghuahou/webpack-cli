@@ -30,8 +30,7 @@ export default {
         path: `${process.cwd()}/dist`,
         filename: "[name].js",
         chunkFilename: "[name]_" + "[chunkhash:7]" + ".js",
-        publicPath: `http://${ip.address()}/qqd-wxent/`
-        // publicPath: 'http://house-test-water.oss.aliyuncs.com/resource/qqd-wxent_test/'
+        publicPath: `http://${ip.address()}/`
     },
     resolve: {
         extensions: [".js", ".vue"],
@@ -42,10 +41,6 @@ export default {
             {
                 test: /\.js[x]?$/,
                 loader: "babel-loader",
-                //underscore.js不经过babel编译,否则会报Cannot read property '_' of undefined
-                exclude: [
-                    path.resolve(__dirname, "../src/global/lib/underscore.js")
-                ],
                 include: [srcPath],
                 options: {
                     compact: false
@@ -91,7 +86,7 @@ export default {
 
         // https://github.com/RoccoC/webpack-build-notifier
         new WebpackNotifierPlugin({
-            title: "鹊桥贷企业号",
+            title: `前端自动化打包完成`,
             logo: "global/img/logo.png",
             successSound: "Submarine",
             failureSound: "Glass",
@@ -108,7 +103,6 @@ export default {
         }),
         new ExtractTextPlugin({
             filename: "[name].css"
-            // filename:path.join('static',  "css/[name].[contenthash].css")
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: "common",
