@@ -13,7 +13,7 @@ import { entry, alias, provide, loader } from "./config";
 import { cssLoaders, styleLoaders } from "./util";
 
 //https://github.com/webpack/loader-utils/issues/56
-process.noDeprecation = true
+// process.noDeprecation = true
 
 const nodeModulesPath = path.resolve(process.cwd(), "node_modules");
 const srcPath = path.resolve(__dirname, "../src");
@@ -48,14 +48,7 @@ const config = {
         rules: [
             {
                 test: /\.js[x]?$/,
-                // exclude: /node_modules/,//ok
-                // exclude: [nodeModulesPath], //exclude 优先
-                //exclude,include如果包含重叠的区域，会exclude这个重叠区域
-                //underscore.js不经过babel编译,否则会报Cannot read property '_' of undefined
-                exclude: [
-                    path.resolve(__dirname, "../src/global/lib/underscore.js")
-                ],
-                include: [srcPath],
+                exclude: /node_modules/,
                 loader: "babel-loader",
                 options: {
                     compact: false,
@@ -80,11 +73,6 @@ const config = {
         ]
     },
     plugins: [
-        //上线时需要后端加上版本号的文件
-        new ManifestPlugin({
-            versionFiles: ["common.css", "common.js", "app.js", "app.css"],
-            hashNum: 7
-        }),
         new webpack.ProvidePlugin(provide),
         //进度条插件
         new ProgressBarPlugin({
@@ -103,7 +91,7 @@ const config = {
 
         // https://github.com/RoccoC/webpack-build-notifier
         new WebpackNotifierPlugin({
-            title: `鹊桥贷企业号`,
+            title: `前端自动化打包完成`,
             logo: "global/img/logo.png",
             successSound: "Submarine",
             failureSound: "Glass",
