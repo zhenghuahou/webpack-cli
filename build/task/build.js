@@ -14,15 +14,24 @@ webpackConfig.watch = true;
 // webpackConfig.output.publicPath = `http://${ip.address()}/qqd-wxent/`;
 
 webpack(webpackConfig, function(err, stats) {
+    // console.log(' stats:',stats);
     if (err) {
         return console.error(err)
     }
-    const jsonStats = stats.toJson()
-    if(jsonStats.errors.length > 0) {
-        return console.log(jsonStats.errors)
+    console.log(stats.toString({
+        colors: true,
+        hash: true,
+        version: true,
+        timings: true,
+        assets: true,
+        chunks: true,
+        chunkModules: false,
+        children: false,
+        modules: false,
+        errorDetails : false
+      }))
+    if(stats.hasErrors() || stats.hasWarnings()) {
+        return console.log(' =========编译过程有错误或者警告=========')
     }
-    if(jsonStats.warnings.length > 0) {
-        return console.log(jsonStats.warnings)
-    }
-    console.log('ok')
+    console.log('=========构建完成=========')
 })
