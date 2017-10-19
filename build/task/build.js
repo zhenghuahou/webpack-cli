@@ -12,23 +12,24 @@ import webpackConfig from '../webpack.config.prod'
 webpackConfig.plugins.splice(webpackConfig.plugins.findIndex((p) => p instanceof webpack.optimize.UglifyJsPlugin), 1);
 
 webpackConfig.watch = true;
-console.log('output.publicPath:',webpackConfig.output.publicPath);
 webpack(webpackConfig, function(err, stats) {
     // console.log(' stats:',stats);
     if (err) {
         return console.error(err)
     }
+    process.stdout.clearLine()
+    process.stdout.cursorTo(0)
     console.log(stats.toString({
         colors: true,
-        hash: true,
-        version: true,
+        hash: false,
+        version: false,
         timings: true,
         assets: true,
-        chunks: true,
+        chunks: false,
+        modules:false,
         chunkModules: false,
         children: false,
-        modules: false,
-        errorDetails : false
+        errorDetails : true
       }))
     if(stats.hasErrors() || stats.hasWarnings()) {
         return console.log(chalk.yellow.bold(' ==================编译过程有错误或者警告=================='));

@@ -70,11 +70,11 @@ export default {
             format: chalk.green.bold("[:bar] :percent ") +
                 chalk.yellow("(:elapsed seconds) :msg"),
             customSummary(buildTime) {
-                process.stdout.write(
-                    chalk.green.bold(
-                        " ---------buildTime:" + buildTime + "---------"
-                    )
-                );
+                // process.stdout.write(
+                //     chalk.green.bold(
+                //         " ---------buildTime:" + buildTime + "---------\n"
+                //     )
+                // );
             }
         }),
 
@@ -99,8 +99,7 @@ export default {
             filename: "[name].css"
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: "common",
-            filename: "common.js",
+            name: 'vendor',
             minChunks: Infinity
         }),
 
