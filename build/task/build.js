@@ -1,7 +1,5 @@
 /**
- * 构建
- *
- * 生成未压缩的代码到dist目录，方便检查
+ * 构建生成未压缩的代码到dist目录，方便检查
  */
 import webpack from 'webpack'
 import ip from 'ip'
