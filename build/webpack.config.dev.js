@@ -4,7 +4,6 @@ import WebpackNotifierPlugin from "webpack-build-notifier";
 import chalk from "chalk";
 import path from "path";
 import ip from "ip";
-import ManifestPlugin from "./plugins/manifest";
 import { timestamp } from "./util";
 import { entry, alias, provide, loader } from "./config";
 import { cssLoaders, styleLoaders } from "./util";

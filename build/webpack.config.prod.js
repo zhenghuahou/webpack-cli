@@ -5,7 +5,6 @@ import ProgressBarPlugin from "progress-bar-webpack-plugin";
 import WebpackNotifierPlugin from "webpack-build-notifier";
 import autoprefixer from "autoprefixer";
 import postcssPxtorem from "postcss-pxtorem";
-import ManifestPlugin from "./plugins/manifest";
 import ip from "ip";
 import path from "path";
 import CleanWebpackPlugin from "clean-webpack-plugin";
@@ -64,11 +63,6 @@ export default {
         ]
     },
     plugins: [
-        //上线时需要后端加上版本号的文件
-        new ManifestPlugin({
-            versionFiles: ["common.css", "common.js", "app.js"],
-            hashNum: 7
-        }),
         new webpack.ProvidePlugin(provide),
         //进度条插件
         new ProgressBarPlugin({

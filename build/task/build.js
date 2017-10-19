@@ -5,13 +5,13 @@
  */
 import webpack from 'webpack'
 import ip from 'ip'
+import chalk from 'chalk'
 import webpackConfig from '../webpack.config.prod'
 
 // remove webpack.optimize.UglifyJsPlugin
 webpackConfig.plugins.splice(webpackConfig.plugins.findIndex((p) => p instanceof webpack.optimize.UglifyJsPlugin), 1);
 
 webpackConfig.watch = true;
-// webpackConfig.output.publicPath = `http://${ip.address()}/qqd-wxent/`;
 console.log('output.publicPath:',webpackConfig.output.publicPath);
 webpack(webpackConfig, function(err, stats) {
     // console.log(' stats:',stats);
@@ -31,7 +31,7 @@ webpack(webpackConfig, function(err, stats) {
         errorDetails : false
       }))
     if(stats.hasErrors() || stats.hasWarnings()) {
-        return console.log(' =========编译过程有错误或者警告=========')
+        return console.log(chalk.yellow.bold(' ==================编译过程有错误或者警告=================='));
     }
-    console.log('=========构建完成=========')
+    console.log(chalk.yellow.bold("　💛　❤️　💙　==================构建完成==================💛　❤️　💙"));
 })
