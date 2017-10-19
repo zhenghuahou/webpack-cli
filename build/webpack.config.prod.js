@@ -13,7 +13,6 @@ import ZipWebpackPlugin from "zip-webpack-plugin";
 import { entry, alias, provide, upload } from "./config";
 import { cssLoaders, styleLoaders } from "./util";
 
-// const nodeModulesPath = path.resolve(process.cwd(), "node_modules");
 const srcPath = path.resolve(__dirname, "../src");
 
 const loaderOptions = {
@@ -22,11 +21,6 @@ const loaderOptions = {
 };
 const loaders = cssLoaders(loaderOptions);
 const styleloaders = styleLoaders(loaderOptions);
-//cwd: /Users/houzhenghua/workspace/static/qqd-wxent
-//__dirname: /Users/houzhenghua/workspace/static/qqd-wxent/build
-
-process.noDeprecation = true
-
 
 export default {
     watch: false,

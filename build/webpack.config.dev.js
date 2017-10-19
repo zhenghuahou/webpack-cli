@@ -12,10 +12,6 @@ import { timestamp } from "./util";
 import { entry, alias, provide, loader } from "./config";
 import { cssLoaders, styleLoaders } from "./util";
 
-//https://github.com/webpack/loader-utils/issues/56
-// process.noDeprecation = true
-
-const nodeModulesPath = path.resolve(process.cwd(), "node_modules");
 const srcPath = path.resolve(__dirname, "../src");
 
 const loaderOptions = {
@@ -25,6 +21,7 @@ const loaderOptions = {
 const loaders = cssLoaders(loaderOptions);
 const styleloaders = styleLoaders(loaderOptions);
 
+console.log(' cwd:',process.cwd(),' __dirname:',__dirname);
 //process.cwd()
 //Users/houzhenghua/workspace/static/qqd-wxent
 

@@ -1,16 +1,19 @@
 .DS_Store
 npm-debug.log
 node_modules/
-.vscode/
+dist/
 
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.vscode
 .gulp
 .tmp
 .idea
 .settings
 .project
-*.log
+
 *.dat
 
-dist
-yarn.lock
 

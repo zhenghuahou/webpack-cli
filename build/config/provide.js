@@ -2,13 +2,9 @@
  * 无需导入可以直接使用的
  */
 export default {
-        _: 'understore',
-        template: 'template',
-        global: 'global',
-        iwjwLog: 'iwjwLog',
+        // global: 'global',
         // Vue: 'vue',
         // VueRouter: 'vue-router',
         // VueResource: 'vue-resource',
-        weixin: 'weixin',
-        qqd:'qqd'
+        // qqd:'qqd'
     }

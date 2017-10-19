@@ -3,7 +3,6 @@ import promptly from 'promptly'
 import chalk from 'chalk'
 import path from 'path'
 import webpackConfig from '../webpack.config.prod'
-import upload from './upload'
 import {upload as uploadConfig} from '../config'
 
 //https://github.com/IndigoUnited/node-promptly
@@ -53,11 +52,6 @@ function build(){
             return process.exit(0); //退出当前进程
         }
 
-        upload().then((result) => {
-            // console.log(`ok`, result)
-        }).catch((err) => {
-            console.error(`fail`, err)
-        })
     });
 }
 
