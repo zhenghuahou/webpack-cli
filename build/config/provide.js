@@ -3,8 +3,4 @@
  */
 export default {
         // global: 'global',
-        // Vue: 'vue',
-        // VueRouter: 'vue-router',
-        // VueResource: 'vue-resource',
-        // qqd:'qqd'
     }

@@ -69,19 +69,19 @@ const config = {
     plugins: [
         new webpack.ProvidePlugin(provide),
         //进度条插件
-        // new ProgressBarPlugin({
-        //     summary: false,
-        //     format: chalk.green.bold("[:bar] :percent ") +
-        //         chalk.yellow("(:elapsed seconds) :msg"),
-        //     customSummary(buildTime) {
-        //         process.stdout.write(
-        //             chalk.cyan(timestamp()) +
-        //                 chalk.green.bold(
-        //                     " ---------buildTime:" + buildTime + "---------"
-        //                 )
-        //         );
-        //     }
-        // }),
+        new ProgressBarPlugin({
+            summary: false,
+            format: chalk.green.bold("[:bar] :percent ") +
+                chalk.yellow("(:elapsed seconds) :msg"),
+            customSummary(buildTime) {
+                process.stdout.write(
+                    chalk.cyan(timestamp()) +
+                        chalk.green.bold(
+                            " ---------buildTime:" + buildTime + "---------"
+                        )
+                );
+            }
+        }),
 
         // https://github.com/RoccoC/webpack-build-notifier
         new WebpackNotifierPlugin({
