@@ -9,7 +9,7 @@ import ip from "ip";
 import path from "path";
 import CleanWebpackPlugin from "clean-webpack-plugin";
 import ZipWebpackPlugin from "zip-webpack-plugin";
-import { entry, alias, provide, upload,logoPath } from "./config";
+import { entry, alias, provide, conf,logoPath } from "./config";
 import { cssLoaders, styleLoaders } from "./util";
 
 const srcPath = path.resolve(__dirname, "../src");
@@ -112,7 +112,7 @@ export default {
         // https://github.com/erikdesjardins/zip-webpack-plugin
         new ZipWebpackPlugin({
             path: "../zip", //relative (to Webpack output path)
-            filename: `${upload.project}.zip`
+            filename: `${conf.project}.zip`
         }),
 
         //允许错误不打断程序

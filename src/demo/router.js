@@ -1,14 +1,14 @@
-//协议页面
-const demo = r => require.ensure([], () => r(require('./views/demo.vue')), 'demo')
+//测试页面
+const test = r => require.ensure([], () => r(require('./views/test.vue')), 'test')
 
-        
+ 
 export default [{
-    path: '/demo',
-    name: 'demo',
+    path: '/test',
+    name: 'test',
     meta:{
-      title:'demo页面',
+      title:'test页面',
     },
-    component: demo,
+    component: test,
     // 路由独享的钩子
     // beforeEnter:(to, from, next)=>{
     // 	next();

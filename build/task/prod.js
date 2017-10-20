@@ -3,9 +3,9 @@ import promptly from "promptly";
 import chalk from "chalk";
 import path from "path";
 import webpackConfig from "../webpack.config.prod";
-import { upload as uploadConfig } from "../config";
+import { conf } from "../config";
 
-const { env : envJson} = uploadConfig;
+const { env : envJson} = conf;
 const envs = Object.keys(envJson);
 
 //https://github.com/IndigoUnited/node-promptly

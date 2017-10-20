@@ -1,15 +1,15 @@
 import entry from './entry'
 import alias from './alias'
 import provide from './provide'
-import upload from './upload'
+import conf from './conf'
 import {resolve} from '../util'
 
-const logoPath = resolve('src','assets/logo.png')
-
+const logoPath = resolve(conf.logoPath)
+console.log(' logoPath:',logoPath);
 export {
     entry,
     alias,
     provide,
-    upload,
+    conf,
     logoPath
 }
