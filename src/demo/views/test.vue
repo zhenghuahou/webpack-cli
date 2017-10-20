@@ -27,9 +27,16 @@ export default {
         height: 100%;
         width:54px;
         height:54px;
-        background: url(../assets/demo.png) center top  no-repeat;
+        background: url('../assets/demo.png') center top  no-repeat;
         background-size: contain;
         vertical-align: middle;
     }
+}
+
+.m-toast-icon {
+  font-size: 32px;
+  ~.m-toast-msg {
+    min-width: 68px;
+  }
 }
 </style>

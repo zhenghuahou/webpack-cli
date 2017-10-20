@@ -22,7 +22,9 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'ui-huazi-demo',
+  'y':'yeah',
+  "okey":'12',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
