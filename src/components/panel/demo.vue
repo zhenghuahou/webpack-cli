@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Panel from './index'
+import {Panel} from '@/components'
 
 export default {
     name: "demo-panel",

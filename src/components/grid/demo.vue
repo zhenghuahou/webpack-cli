@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Grid from './index'
+import {Grid} from '@/components'
 export default {
     name: "demo-grid",
     components: {
