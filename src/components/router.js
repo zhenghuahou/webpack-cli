@@ -2,7 +2,7 @@ const panel = r => require.ensure([], () => r(require('@/components/panel/demo')
 const grid = r => require.ensure([], () => r(require('@/components/grid/demo')), 'grid');
 
 //ui demo页面
-const demo = r => require.ensure([], () => r(require('@/components/index.vue')), 'demo');
+const demo = r => require.ensure([], () => r(require('@/components/demo')), 'demo');
 
 export default [{
         path:'/demo',
