@@ -1,12 +1,10 @@
 import path from 'path';
+import { resolve } from "../util";
 
-function resolve (dir) {
-  return path.join(__dirname, '../..', dir)
-}
 const alias = {
-    global:'./src/global/module/global.js',
-    vueComponents:'./src/components/index.js',//鹊桥贷全局组件
-    '@': resolve('src/components'), //鹊桥贷公用业务组件
+    // vueComponents:'./src/components/index.js',//全局组件
+    vueComponents:resolve('src','components','index.js'),//全局组件
+    '@': resolve('src')
 }
 
 Object.keys(alias).forEach((name) => alias[name] = path.resolve(alias[name]));

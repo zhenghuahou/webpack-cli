@@ -9,7 +9,7 @@ import ip from "ip";
 import path from "path";
 import CleanWebpackPlugin from "clean-webpack-plugin";
 import ZipWebpackPlugin from "zip-webpack-plugin";
-import { entry, alias, provide, upload } from "./config";
+import { entry, alias, provide, upload,logoPath } from "./config";
 import { cssLoaders, styleLoaders } from "./util";
 
 const srcPath = path.resolve(__dirname, "../src");
@@ -81,7 +81,7 @@ export default {
         // https://github.com/RoccoC/webpack-build-notifier
         new WebpackNotifierPlugin({
             title: `前端自动化打包完成`,
-            logo: "global/img/logo.png",
+            logo: logoPath,
             successSound: "Submarine",
             failureSound: "Glass",
             suppressSuccess: true

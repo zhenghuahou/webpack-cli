@@ -5,10 +5,8 @@ import chalk from "chalk";
 import path from "path";
 import ip from "ip";
 import { timestamp } from "./util";
-import { entry, alias, provide, loader } from "./config";
+import { entry, alias, provide, loader ,logoPath} from "./config";
 import { cssLoaders, styleLoaders } from "./util";
-
-const srcPath = path.resolve(__dirname, "../src");
 
 const loaderOptions = {
     sourceMap: false,
@@ -84,7 +82,7 @@ const config = {
         // https://github.com/RoccoC/webpack-build-notifier
         new WebpackNotifierPlugin({
             title: `前端自动化打包完成`,
-            logo: "global/img/logo.png",
+            logo: logoPath,
             successSound: "Submarine",
             failureSound: "Glass",
             suppressSuccess: true

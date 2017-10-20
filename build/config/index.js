@@ -2,10 +2,14 @@ import entry from './entry'
 import alias from './alias'
 import provide from './provide'
 import upload from './upload'
-// console.warn = () => {} // 关闭postcss烦人的警告
+import {resolve} from '../util'
+
+const logoPath = resolve('src','assets/logo.png')
+
 export {
     entry,
     alias,
     provide,
-    upload
+    upload,
+    logoPath
 }
