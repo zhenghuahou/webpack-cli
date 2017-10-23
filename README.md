@@ -21,6 +21,8 @@ npm run prod
 ## 目录结构
 
 项目根目录
+
+``` 
 |---build 项目构建代码  
 |　　|---config 构建项目用到的配置  
 |　　|---task 构建任务入口  
@@ -51,3 +53,4 @@ npm run prod
 |---package.json npm配置  
 |---postcss.config.js postcss插件配置  
 |---README.md 项目自述  
+``` 
