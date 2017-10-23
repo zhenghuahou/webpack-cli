@@ -112,7 +112,7 @@ export default {
         // https://github.com/erikdesjardins/zip-webpack-plugin
         new ZipWebpackPlugin({
             path: "../zip", //relative (to Webpack output path)
-            filename: `${conf.project}.zip`
+            filename: `${conf.name}.zip`
         }),
 
         //允许错误不打断程序
