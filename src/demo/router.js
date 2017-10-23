@@ -1,6 +1,6 @@
 //测试页面
-const test = r => require.ensure([], () => r(require('./views/test.vue')), 'test')
-
+// const test = () => import(/* webpackChunkName: "test" */ './views/test') //ok
+const test = resolve => import(/* webpackChunkName: "test" */ './views/test').then(resolve);
  
 export default [{
     path: '/test',
@@ -8,10 +8,6 @@ export default [{
     meta:{
       title:'test页面',
     },
-    component: test,
-    // 路由独享的钩子
-    // beforeEnter:(to, from, next)=>{
-    // 	next();
-    // }
+    component:test
   }
 ]

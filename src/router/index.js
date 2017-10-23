@@ -12,10 +12,10 @@ let routes = [
 ];
 
 console.table(routes);
-// routes.push({
-//   path: '*',
-//   redirect: { name: 'demo' },
-// });
+routes.push({
+  path: '*',
+  redirect: { name: 'demo' },
+});
 
 export default new VueRouter({
   mode: 'history',

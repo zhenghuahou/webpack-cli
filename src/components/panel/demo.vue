@@ -9,7 +9,6 @@
 
 <script>
 import {Panel} from '@/components'
-
 export default {
     name: "demo-panel",
     components: {

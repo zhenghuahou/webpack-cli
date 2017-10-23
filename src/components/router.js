@@ -1,8 +1,9 @@
-const panel = r => require.ensure([], () => r(require('@/components/panel/demo')), 'panel');
-const grid = r => require.ensure([], () => r(require('@/components/grid/demo')), 'grid');
+const panel = () => import(/* webpackChunkName: "panel" */ './panel/demo')
+const grid = () => import(/* webpackChunkName: "grid" */ './grid/demo')
 
 //ui demo页面
-const demo = r => require.ensure([], () => r(require('@/components/demo')), 'demo');
+const demo = () => import(/* webpackChunkName: "demo" */ './demo')
+
 
 export default [{
         path:'/demo',
