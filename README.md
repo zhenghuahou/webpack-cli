@@ -38,19 +38,19 @@ npm run prod
 |　　|　　|---views 业务入口 
 |　　|　　|---api.js  api调用
 |　　|　　|---router.js 业务路由 
-|　　|---global 全局性  
-|　　|　　|---assets 全局图片以及资源文件  
+|　　|---global 全局性资源  
+|　　|　　|---assets   图片以及css文件  
 |　　|　　|---iconfont 字体图标 
 |　　|---router SPA站点路由 
 |　　|　　|---index.js 
-|　　|---store vuex板块
+|　　|---store vuex模块
 |　　|　　|---index.js 
 |---dist 打包生成代码目录  
 |---zip  zip包目录  
-|---.babelrc babel运行时配置  
+|---.babelrc      babel运行时配置  
 |---.editorconfig 编辑器配置  
-|---.gitignore git忽略配置  
-|---package.json npm配置  
+|---.gitignore    git忽略配置  
+|---package.json  npm配置  
 |---postcss.config.js postcss插件配置  
 |---README.md 项目自述  
 ``` 
