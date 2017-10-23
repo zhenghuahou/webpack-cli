@@ -2,6 +2,7 @@
 npm-debug.log
 node_modules/
 dist/
+config/mine.js
 
 npm-debug.log*
 yarn-debug.log*
