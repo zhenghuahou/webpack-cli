@@ -16,3 +16,38 @@ npm run build
 npm run prod
 ```
 打包生成测试环境或者线上环境代码时使用这个命令,此时代码是压缩过的
+
+
+## 目录结构
+
+项目根目录
+|---build 项目构建代码  
+|　　|---config 构建项目用到的配置  
+|　　|---task 构建任务入口  
+|　　|---server 本地server服务器 
+|　　|---webpack.config.dev.js webpack开发配置  
+|　　|---webpack.config.prod.js webpack上线配置  
+|---config 项目配置  
+|---node_modules node模块  
+|---src 应用源码目录  
+|　　|---demo 业务级文件入口
+|　　|　　|---assets 业务资源图片以及样式 
+|　　|　　|---components 业务组件  
+|　　|　　|---views 业务入口 
+|　　|　　|---api.js  api调用
+|　　|　　|---router.js 业务路由 
+|　　|---global 全局性  
+|　　|　　|---assets 全局图片以及资源文件  
+|　　|　　|---iconfont 字体图标 
+|　　|---router SPA站点路由 
+|　　|　　|---index.js 
+|　　|---store vuex板块
+|　　|　　|---index.js 
+|---dist 打包生成代码目录  
+|---zip  zip包目录  
+|---.babelrc babel运行时配置  
+|---.editorconfig 编辑器配置  
+|---.gitignore git忽略配置  
+|---package.json npm配置  
+|---postcss.config.js postcss插件配置  
+|---README.md 项目自述  

@@ -1,0 +1,78 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot'); 
+  src: url('iconfont.eot') format('embedded-opentype'),
+  url('iconfont.woff') format('woff'), 
+  url('iconfont.ttf') format('truetype'), 
+  url('iconfont.svg') format('svg'); 
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-back:before { content: "\e68a"; }
+
+.icon-history:before { content: "\e63a"; }
+
+.icon-area:before { content: "\e607"; }
+
+.icon-weibo:before { content: "\e600"; }
+
+.icon-weixin:before { content: "\e601"; }
+
+.icon-triangle-right:before { content: "\e603"; }
+
+.icon-triangle-left:before { content: "\e604"; }
+
+.icon-checked:before { content: "\e60a"; }
+
+.icon-cancel:before { content: "\e610"; }
+
+.icon-delete:before { content: "\e60c"; }
+
+.icon-close:before { content: "\e606"; }
+
+.icon-arrow-down:before { content: "\e609"; }
+
+.icon-arrow-left:before { content: "\e602"; }
+
+.icon-arrow-right:before { content: "\e605"; }
+
+.icon-arrow-top:before { content: "\e60b"; }
+
+.icon-map:before { content: "\e608"; }
+
+.icon-message:before { content: "\e60e"; }
+
+.icon-plus:before { content: "\e632"; }
+
+.icon-changeagentcall:before { content: "\e60d"; }
+
+.icon-scancamera:before { content: "\e611"; }
+
+.icon-account-bankcard:before { content: "\e61a"; }
+
+.icon-processexplain:before { content: "\e60f"; }
+
+.icon-succeed:before { content: "\e905"; }
+
+.icon-empty-statusicon:before { content: "\e61f"; }
+
+.icon-finance_notice:before { content: "\e97a"; }
+
+.icon-account_mine:before { content: "\e983"; }
+
+.icon-location:before { content: "\e984"; }
+
+.icon-logo_daizongguan:before { content: "\e985"; }
+
+.icon-uoload:before { content: "\e9a5"; }
+
+.icon-delete1:before { content: "\e9f2"; }
+
+.icon-add:before { content: "\e9f4"; }
+
