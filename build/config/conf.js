@@ -6,10 +6,10 @@
 
  const envConfig = {
     test :{
-        publicPath:`http://house-test-water.oss.aliyuncs.com/resource/${project}_test/`
+        publicPath:`http://xx.aa.com/resource/${project}_test/`
     },
     prod :{
-        publicPath:`http://resource.iwjw.com/${project}/`
+        publicPath:`http://xx.bb.com/${project}/`
     }
 };
 
