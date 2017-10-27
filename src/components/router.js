@@ -4,7 +4,6 @@ const grid = () => import(/* webpackChunkName: "grid" */ './grid/demo')
 //ui demo页面
 const demo = () => import(/* webpackChunkName: "demo" */ './demo')
 
-
 export default [{
         path:'/demo',
         name:'demo',

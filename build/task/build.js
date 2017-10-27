@@ -5,11 +5,16 @@ import webpack from 'webpack'
 import ip from 'ip'
 import chalk from 'chalk'
 import webpackConfig from '../webpack.config.prod'
+import config from "../../config";
+
+const port = config.bkdServerPort;
 
 // remove webpack.optimize.UglifyJsPlugin
 webpackConfig.plugins.splice(webpackConfig.plugins.findIndex((p) => p instanceof webpack.optimize.UglifyJsPlugin), 1);
 
 webpackConfig.watch = true;
+webpackConfig.output.publicPath =  `http://${ip.address()}:${port}/`;
+
 webpack(webpackConfig, function(err, stats) {
     // console.log(' stats:',stats);
     if (err) {

@@ -7,18 +7,32 @@
     </title>
     <meta name="keywords" content="">
     <meta name="description" content="">
+    <link rel="stylesheet" media="all" href="<%=staticUrl%>/app.css">
     <script>
         window.pageConfig = {
-            siteUrl: 'http://localhost:8080/',
-            error: "<%=locals.error || '' %>"
+            staticUrl: "<%=staticUrl%>",
+            locals: <%-JSON.stringify(locals)%>
         }
     </script>
+    <style> 
+     .t-r{
+         text-align: center;
+         color:#333;
+         font-size: 16px;
+         font-weight: normal;
+         margin: 0 20px;
+         padding:10px 0;
+         border-bottom:1px dashed rgb(220,220,220);
+     }
+    </style>
 </head>
 
 <body>
-    <p style="text-align:center">xxxxx</p>
-    <div class="mod-app">
-    </div>
+    <h3 class="t-r">欢迎使用无后端开发模式</h3>
+    <div class="mod-app"></div>
+    <script type="text/javascript" src="<%=staticUrl%>/vendor.js"></script>
+    <script type="text/javascript" 
+    src="<%=staticUrl%>/app.js"></script>
 </body>
 
 </html>
