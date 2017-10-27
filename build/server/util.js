@@ -1,7 +1,15 @@
 import fs from "fs";
 import path from "path";
+import _ip from "ip";
+import config from "../../config";
 
-let util = {};
+const ip = _ip.address();
+const port = config.bkdServerPort;
+
+let util = {
+    ip,
+    port
+};
 
 /*
 *@params {string} arrays:过滤数组

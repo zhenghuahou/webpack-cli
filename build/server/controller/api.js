@@ -2,6 +2,8 @@ import { render, getData } from "../api";
 import util from "../util";
 import path from "path";
 
+const {ip,port} = util;
+
 const Api = {
     //首页
     renderList: async function(ctx, next) {
@@ -18,9 +20,9 @@ const Api = {
         const apiJson = files.map(name => {
             return { name, link: `${ctx.path}${name}` };
         });
-        // console.warn(" apiJson:", apiJson);
         await ctx.render("api", {
             title: "api接口列表",
+            staticUrl:`http://${ip}:${port}`,
             apiJson
         });
     },
