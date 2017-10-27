@@ -9,7 +9,7 @@
     "prod": "babel-node ./build/task/prod.js",
     "build": "babel-node ./build/task/build.js",
     "server": "babel-node ./build/server/main.js",
-    "start": "npm run build  &&  npm run server"
+    "start": "npm run server  &  npm run build"
   },
   "dependencies": {
     "axios": "^0.16.2",

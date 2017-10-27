@@ -26,8 +26,8 @@ webpack(webpackConfig, function(err, stats) {
         colors: true,
         hash: false,
         version: false,
-        timings: true,
-        assets: true,
+        timings: false,
+        assets: false,
         chunks: false,
         modules:false,
         chunkModules: false,
@@ -35,7 +35,7 @@ webpack(webpackConfig, function(err, stats) {
         errorDetails : true
       }))
     if(stats.hasErrors() || stats.hasWarnings()) {
-        return console.log(chalk.yellow.bold(' ==================编译过程有错误或者警告=================='));
+        return console.log(chalk.yellow.bold('==================编译过程有错误或者警告=================='));
     }
-    console.log(chalk.yellow.bold("　💛　❤️　💙　==================构建完成==================💛　❤️　💙"));
+    console.log(chalk.yellow.bold("==================前端构建完成=================="));
 })
