@@ -15,8 +15,8 @@ const {bkdServerPort} = config;
 
 app.use(views(`${__dirname}/views`, { extension: "ejs" }));
 app.use(serve(path.resolve(process.cwd(), 'dist/')))
-app.use(router.routes());
-app.use(router.allowedMethods());
+//add router
+router(app);
 
 app.listen(bkdServerPort, () => {
     console.warn(

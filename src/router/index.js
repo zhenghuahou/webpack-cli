@@ -8,8 +8,7 @@ Vue.use(VueRouter)
 
 let routes = [
   ...demo,  
-  // ... __DEV__ ? uiRouter:[]
-  ... !__DEV__ ? uiRouter:[]
+  ... __DEV__ ? uiRouter:[]
 ];
 
 console.table(routes);
