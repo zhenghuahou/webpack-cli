@@ -7,8 +7,6 @@ import { devMiddleware, hotMiddleware } from "koa-webpack-middleware";
 
 import serve from "koa-static";
 import views from "koa-views";
-// import Router from 'koa-router'
-// import router from "../server/router";
 
 import config from "../../config";
 import router from "../server/router";
@@ -27,17 +25,14 @@ Object.keys(entry).forEach(name => {
     }
 });
 
-// /Users/houzhenghua/github/webpack-demos/build/server/views
-// console.warn(" dist:", path.resolve(__dirname, "../server/views"));
 const compiler = webpack(webpackConfig);
 
-// const devMiddleware = webpackDevMiddleware(compiler, {
 const devMw = devMiddleware(compiler, {
     // serverSideRender: true,
     publicPath: compiler.options.output.publicPath,
     headers: { "X-Custom-Header": "yes" },
     //`quiet: true` display nothing to the console
-    quiet: false,
+    quiet: true,
     // `noInfo:true` display no info to console (only warnings and errors)
     noInfo: true,
     // reload: true,
@@ -60,7 +55,8 @@ const devMw = devMiddleware(compiler, {
     }
 });
 const hotMw = hotMiddleware(compiler, {
-    log: console.log
+    log:false
+    // log: console.log.bind(null,'\nhotMiddleware:dev:')
 });
 
 const app = new koa();

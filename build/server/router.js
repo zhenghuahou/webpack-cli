@@ -14,7 +14,7 @@ export default function(app) {
     const router = new Router();
 
     // index
-    router.get("/", main.index);
+    router.get("/", main.index); //htmlPlugins
 
     app.port = app.port || devServerPort;
 
