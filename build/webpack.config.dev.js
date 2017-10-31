@@ -99,10 +99,9 @@ const config = {
 
         // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
         new webpack.HotModuleReplacementPlugin(),
-
+      
         new webpack.optimize.CommonsChunkPlugin({
-            name: "common",
-            filename: "common.js",
+            name: 'vendor',
             minChunks: Infinity
         }),
 
