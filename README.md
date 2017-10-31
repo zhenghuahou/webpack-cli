@@ -34,14 +34,14 @@ npm run server
 ``` bash   
 npm start
 ```
-效果等等同于`npm run dev`,只是额外用`nodemon`监听`build`目录里的代码变化,如果代码有变化则会自动重启服务
+同时开启本地server服务和前端自动化构建服务，在联调接口时用这条命令
 
 
 
 ``` bash   
 npm restart
 ```
-同时开启本地server服务和前端自动化构建服务,，使用nodemon监听
+效果等同于`npm run dev`,只是额外用`nodemon`监听`build`目录里的代码变化,如果代码有变化则会自动重启服务
 
 ## 目录结构
 
