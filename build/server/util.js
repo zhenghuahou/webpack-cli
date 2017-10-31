@@ -4,11 +4,9 @@ import _ip from "ip";
 import config from "../../config";
 
 const ip = _ip.address();
-const port = config.bkdServerPort;
 
 let util = {
-    ip,
-    port
+    ip
 };
 
 /*
@@ -28,20 +26,19 @@ function filter(arrays, fn) {
 /*
 *批量把node api异步方法封装为async函数
 */
-["readdir","readFile"].forEach(function(name) {
+["readdir", "readFile"].forEach(function(name) {
     util[name] = async function(...args) {
         const [path = "", options = ""] = args;
         return await new Promise(function(resolve, reject) {
             fs[name](path, options, function(err, data) {
                 if (err) {
-                   return  reject(err);
+                    return reject(err);
                 }
                 resolve(data);
             });
         });
     };
 });
-
 
 /*
 *@params {string} path:要读取的文件路径

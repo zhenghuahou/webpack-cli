@@ -2,10 +2,10 @@ import { render, getData } from "../api";
 import util from "../util";
 import path from "path";
 
-const {ip,port} = util;
+const { ip } = util;
 
 const Api = {
-    //首页
+    //列表
     renderList: async function(ctx, next) {
         let dir = path.join(__dirname, "../api/", ctx.path);
 
@@ -16,13 +16,14 @@ const Api = {
         if (!files) {
             return render(ctx, "不存在该文件目录", { status: 404 });
         }
-
+        const { port } = ctx.app;
         const apiJson = files.map(name => {
             return { name, link: `${ctx.path}${name}` };
         });
+        
         await ctx.render("api", {
             title: "api接口列表",
-            staticUrl:`http://${ip}:${port}`,
+            staticUrl: `http://${ip}:${port}`,
             apiJson
         });
     },

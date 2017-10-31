@@ -19,7 +19,7 @@ export default {
 .demo{
     width:50%;
     margin: 10px auto;
-    border:2px dashed darkkhaki;
+    border:1px dashed darkkhaki;
     padding: 10px;
     &:before{
         content:'';

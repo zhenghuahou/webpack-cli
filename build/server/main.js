@@ -11,14 +11,18 @@ import router from "./router";
 import config from "../../config";
 
 const app = new koa();
-const {bkdServerPort} = config;
+
+//后端服务接口
+const { bkdServerPort } = config;
+app.port = bkdServerPort;
 
 app.use(views(`${__dirname}/views`, { extension: "ejs" }));
-app.use(serve(path.resolve(process.cwd(), 'dist/')))
+app.use(serve(path.resolve(process.cwd(), "dist/")));
+
 //add router
 router(app);
 
-app.listen(bkdServerPort, () => {
+app.listen(app.port, () => {
     console.warn(
         `server at ${chalk.magenta.underline(
             `http://${ip.address()}:${bkdServerPort}/`
