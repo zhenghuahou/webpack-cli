@@ -1,11 +1,12 @@
 import webpack from "webpack";
 import ProgressBarPlugin from "progress-bar-webpack-plugin";
 import WebpackNotifierPlugin from "webpack-build-notifier";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import chalk from "chalk";
 import path from "path";
 import ip from "ip";
 import { timestamp } from "./util";
-import { entry, alias, provide, loader ,logoPath} from "./config";
+import { entry, alias, provide, loader, logoPath } from "./config";
 import { cssLoaders, styleLoaders } from "./util";
 
 const loaderOptions = {
@@ -23,11 +24,12 @@ const config = {
     entry: entry,
     // devtool: 'eval-source-map',
     // devtool: "source-map",
-    devtool: 'cheap-module-eval-source-map',
+    devtool: "cheap-module-eval-source-map",
     output: {
+        hashDigestLength:8,
         path: `${process.cwd()}/dist`,
-        filename: "[name].js",
-        chunkFilename: "[name]_" + "[hash:7]" + ".js",
+        filename: "[name].[chunkhash].js",
+        chunkFilename: "[name]_" + "[chunkhash]" + ".js",
         publicPath: "/"
     },
     resolve: {
@@ -52,6 +54,10 @@ const config = {
                     loaders: loaders
                 }
             },
+            {
+                test: /\.ejs$/,
+                loader: "ejs-loader"
+            },
             ...styleloaders,
             {
                 test: /\.(png|jpg|gif|woff|woff2|ttf|eot|svg|swf)$/,
@@ -67,7 +73,8 @@ const config = {
         //进度条插件
         new ProgressBarPlugin({
             summary: false,
-            format: chalk.green.bold("[:bar] :percent ") +
+            format:
+                chalk.green.bold("[:bar] :percent ") +
                 chalk.yellow("(:elapsed seconds) :msg"),
             customSummary(buildTime) {
                 process.stdout.write(
@@ -99,14 +106,24 @@ const config = {
 
         // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
         new webpack.HotModuleReplacementPlugin(),
-      
+        
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
+            name: "vendor",
+            filename: 'vendor.[hash].js',//hash:每次重新编译都会变
+            // filename: 'vendor.[chunkhash].js',//开发环境下，热加载的HotModuleReplacementPlugin和vendor.[chunkhash].js不能同时起作用，否则会报错
             minChunks: Infinity
         }),
 
         //允许错误不打断程序
-        new webpack.NoEmitOnErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin(),
+        //https://github.com/jantimon/html-webpack-plugin
+        new HtmlWebpackPlugin({
+            chunks: ["vendor", "app"],
+            title: "html-webpack-plugin demo ejs模板",
+            // filename: 'index.html',
+            template: "build/server/views/template.ejs",
+            inject: "body"
+        })
     ]
 };
 

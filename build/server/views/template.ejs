@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title><%=JSON.stringify(htmlWebpackPlugin.options,null,4)%></title>
+    <script>
+        window.pageConfig = {
+        }
+    </script>
+    <style> 
+     .t-r{
+         text-align: center;
+         color:#333;
+         font-size: 16px;
+         font-weight: normal;
+         margin: 0 20px;
+         padding:10px 0;
+         border-bottom:1px dashed rgb(220,220,220);
+     }
+    </style>
+</head>
+
+<body>
+    <h3 class="t-r">html-webpack-plugin 2</h3>
+    <pre><%=JSON.stringify(htmlWebpackPlugin.files,null,4)%></pre>
+    <div class="mod-app"></div>
+</body>
+
+</html>
