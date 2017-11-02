@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>
@@ -10,73 +11,84 @@
     <script>
         window.pageConfig = {
             staticUrl: "<%=staticUrl%>",
-            locals: <%-JSON.stringify(locals)%>
+            vendor: "<%=vendor%>",
+            app: "<%=app%>",
+            locals: <%-JSON.stringify(locals) %>
         }
     </script>
-    <style> 
-     *{
-        margin: 0;
-        padding: 0;
-    }
-    body{
-        line-height: 1.5;
-        color: #333;
-        background-color:#eceff1;
-        padding: 1.2rem 1.2rem 1rem 1.8rem;
-        font-size: 16px;
-        font-family: PingFang SC,-apple-system,Arial,Microsoft YaHei,Microsoft JhengHei,Helvetica Neue,sans-serif;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-    h1{
-        color:#333;
-        font-size: 20px;
-        font-weight: normal;
-        margin-left: .8rem;
-    }
-    a{
-        color:#333;
-        text-decoration:none;
-    }
-    .projects{
-        margin: 1.8rem 0;
-        overflow: hidden;
-    }
-    .lists{
-        display: flex;
-        flex-wrap:wrap;
-        padding: 5px 0;
-    }
-    .lists li{
-        display: flex;
-        margin-bottom: .8rem;
-        margin-left: .8rem;
-        background-color: #fff;
-        border-radius: 2px;
-        cursor: pointer;
-        min-width: 100px;
-        text-align: center;
-        box-shadow: 1px 1px 1px rgba(0,0,0,.5), inset 1px 1px 1px rgba(0,0,0,.5);
-    }
-    .lists a{
-        display: block;
-        width:100%;
-        height: 100%;
-        padding: .4rem 1.25rem .4rem .4rem;
-        box-sizing: border-box;
-        border-radius: 2px;    
-    }
-    .lists li:hover{
-        background-color: #eee;
-    }
-    .conftact-info{
-        border-top: 2px solid #EDEEEF;
-        font-weight: normal;
-        font-size: 12px;
-        color: rgb(150, 150, 150);
-        text-align: center;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            line-height: 1.5;
+            color: #333;
+            background-color: #eceff1;
+            padding: 1.2rem 1.2rem 1rem 1.8rem;
+            font-size: 16px;
+            font-family: PingFang SC, -apple-system, Arial, Microsoft YaHei, Microsoft JhengHei, Helvetica Neue, sans-serif;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 20px;
+            font-weight: normal;
+            margin-left: .8rem;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .projects {
+            margin: 1.8rem 0;
+            overflow: hidden;
+        }
+
+        .lists {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 5px 0;
+        }
+
+        .lists li {
+            display: flex;
+            margin-bottom: .8rem;
+            margin-left: .8rem;
+            background-color: #fff;
+            border-radius: 2px;
+            cursor: pointer;
+            min-width: 100px;
+            text-align: center;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, .5), inset 1px 1px 1px rgba(0, 0, 0, .5);
+        }
+
+        .lists a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: .4rem 1.25rem .4rem .4rem;
+            box-sizing: border-box;
+            border-radius: 2px;
+        }
+
+        .lists li:hover {
+            background-color: #eee;
+        }
+
+        .conftact-info {
+            border-top: 2px solid #EDEEEF;
+            font-weight: normal;
+            font-size: 12px;
+            color: rgb(150, 150, 150);
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -86,9 +98,11 @@
         <ul class='lists'>
             <% locals.apiJson.forEach(function(item){ %>
                 <li class='test'>
-                    <a href="<%=item.link%>"><%=item.name%></a>
+                    <a href="<%=item.link%>">
+                        <%=item.name%>
+                    </a>
                 </li>
-            <%})%>
+                <%})%>
         </ul>
     </div>
 </body>

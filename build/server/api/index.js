@@ -12,7 +12,7 @@ async function getData(ctx) {
     const data = await util
         .readFile(`${__dirname}${ctx.pathname}`, "utf8")
         .catch(function(error) {
-            console.error(`【${error}】`);
+            // console.error(`【${error}】`,error.status);
         });
     return data;
     // return await getLowdb(`${__dirname}${ctx.pathname}`);

@@ -1,4 +1,4 @@
-import path from 'path';
+import path from "path";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 
 function pad(n) {
@@ -19,7 +19,7 @@ function resolve(...dirs) {
     return path.join(__dirname, "..", ...dirs);
 }
 
-export { timestamp ,resolve };
+export { timestamp, resolve };
 
 export function cssLoaders(options = {}) {
     const sourceMap = options.sourceMap || false;

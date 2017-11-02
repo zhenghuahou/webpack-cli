@@ -1,6 +1,6 @@
 import util from "../util";
-const { ip } = util;
-
+const { ip, manifest } = util;
+// console.log('【server/controller/main.js】 manifest:',manifest);
 export default {
     //首页
     index: async function(ctx, next) {
@@ -12,10 +12,11 @@ export default {
             })
         );
         const { port } = ctx.app;
-
         await ctx.render("index", {
             title: "欢迎使用无后端开发模式",
-            staticUrl: `http://${ip}:${port}`
+            staticUrl: `http://${ip}:${port}`,
+            vendor: manifest[`vendor.js`],
+            app: manifest[`app.js`]
         });
     }
 };

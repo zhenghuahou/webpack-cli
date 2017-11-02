@@ -17,7 +17,7 @@ export default {
 
 <style lang="scss">
 .demo{
-    width:50%;
+    width:80%;
     margin: 10px auto;
     border:1px dashed darkkhaki;
     padding: 10px;

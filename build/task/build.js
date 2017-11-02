@@ -20,15 +20,15 @@ webpack(webpackConfig, function(err, stats) {
     if (err) {
         return console.error(err)
     }
-    process.stdout.clearLine()
-    process.stdout.cursorTo(0)
+    // process.stdout.clearLine()
+    // process.stdout.cursorTo(0)
     console.log(stats.toString({
         colors: true,
         hash: false,
         version: false,
         timings: false,
-        assets: false,
-        chunks: false,
+        assets: false,//true
+        chunks: false,//true
         modules:false,
         chunkModules: false,
         children: false,

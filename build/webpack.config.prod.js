@@ -3,13 +3,14 @@ import chalk from "chalk";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 import ProgressBarPlugin from "progress-bar-webpack-plugin";
 import WebpackNotifierPlugin from "webpack-build-notifier";
+import ManifestPlugin from "webpack-assets-manifest";
 import autoprefixer from "autoprefixer";
 import postcssPxtorem from "postcss-pxtorem";
 import ip from "ip";
 import path from "path";
 import CleanWebpackPlugin from "clean-webpack-plugin";
 import ZipWebpackPlugin from "zip-webpack-plugin";
-import { entry, alias, provide, conf,logoPath } from "./config";
+import { entry, alias, provide, conf, logoPath } from "./config";
 import { cssLoaders, styleLoaders } from "./util";
 
 const srcPath = path.resolve(__dirname, "../src");
@@ -26,9 +27,10 @@ export default {
     entry: entry,
     devtool: false,
     output: {
+        hashDigestLength: 8,
         path: `${process.cwd()}/dist`,
-        filename: "[name].js",
-        chunkFilename: "[name]_" + "[chunkhash:7]" + ".js",
+        filename: "[name].[chunkhash].js",
+        chunkFilename: "[name]_" + "[chunkhash]" + ".js",
         publicPath: `http://${ip.address()}/`
     },
     resolve: {
@@ -63,11 +65,17 @@ export default {
         ]
     },
     plugins: [
+        //上线时需要后端加上版本号的文件
+        new ManifestPlugin({
+            space: 4,
+            output: "manifest.json"
+        }),
         new webpack.ProvidePlugin(provide),
         //进度条插件
         new ProgressBarPlugin({
             summary: false,
-            format: chalk.green.bold("[:bar] :percent ") +
+            format:
+                chalk.green.bold("[:bar] :percent ") +
                 chalk.yellow("(:elapsed seconds) :msg"),
             customSummary(buildTime) {
                 // process.stdout.write(
@@ -99,7 +107,7 @@ export default {
             filename: "[name].css"
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
+            name: "vendor",
             minChunks: Infinity
         }),
 

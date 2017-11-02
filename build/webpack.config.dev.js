@@ -2,6 +2,7 @@ import webpack from "webpack";
 import ProgressBarPlugin from "progress-bar-webpack-plugin";
 import WebpackNotifierPlugin from "webpack-build-notifier";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import ManifestPlugin from "webpack-assets-manifest";
 import chalk from "chalk";
 import path from "path";
 import ip from "ip";
@@ -16,9 +17,6 @@ const loaderOptions = {
 const loaders = cssLoaders(loaderOptions);
 const styleloaders = styleLoaders(loaderOptions);
 
-//process.cwd():Users/houzhenghua/github/webpack-demos
-//__dirname: /Users/houzhenghua/github/webpack-demos/build
-
 const config = {
     watch: true,
     entry: entry,
@@ -26,9 +24,9 @@ const config = {
     // devtool: "source-map",
     devtool: "cheap-module-eval-source-map",
     output: {
-        hashDigestLength:8,
+        hashDigestLength: 8,
         path: `${process.cwd()}/dist`,
-        filename: "[name].[chunkhash].js",
+        filename: "[name].js",
         chunkFilename: "[name]_" + "[chunkhash]" + ".js",
         publicPath: "/"
     },
@@ -54,10 +52,6 @@ const config = {
                     loaders: loaders
                 }
             },
-            {
-                test: /\.ejs$/,
-                loader: "ejs-loader"
-            },
             ...styleloaders,
             {
                 test: /\.(png|jpg|gif|woff|woff2|ttf|eot|svg|swf)$/,
@@ -69,6 +63,12 @@ const config = {
         ]
     },
     plugins: [
+        //上线时需要后端加上版本号的文件
+        // new ManifestPlugin({
+        //     space: 4,
+        //     output: 'dev/manifest.json',
+        //     writeToDisk:true
+        // }),
         new webpack.ProvidePlugin(provide),
         //进度条插件
         new ProgressBarPlugin({
@@ -80,7 +80,7 @@ const config = {
                 process.stdout.write(
                     chalk.cyan(timestamp()) +
                         chalk.green.bold(
-                            " ---------buildTime:" + buildTime + "---------"
+                            " ---------buildTime:" + buildTime + "---------\n"
                         )
                 );
             }
@@ -106,11 +106,15 @@ const config = {
 
         // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
         new webpack.HotModuleReplacementPlugin(),
-        
+
         new webpack.optimize.CommonsChunkPlugin({
             name: "vendor",
-            filename: 'vendor.[hash].js',//hash:每次重新编译都会变
-            // filename: 'vendor.[chunkhash].js',//开发环境下，热加载的HotModuleReplacementPlugin和vendor.[chunkhash].js不能同时起作用，否则会报错
+            //[hash]:每次重新编译都会变,可以使用，但是不建议在开发环境使用
+            filename: "[name].js",
+            // filename: 'vendor.[hash].js',//hash:每次重新编译都会变,可以使用，但是不建议在开发环境使用
+
+            //https://github.com/webpack/webpack-dev-server/issues/377
+            // filename: 'vendor.[chunkhash].js',//开发环境下，热加载的HotModuleReplacementPlugin和[chunkhash]不能同时起作用，否则会报错
             minChunks: Infinity
         }),
 
@@ -119,10 +123,10 @@ const config = {
         //https://github.com/jantimon/html-webpack-plugin
         new HtmlWebpackPlugin({
             chunks: ["vendor", "app"],
-            title: "html-webpack-plugin demo ejs模板",
-            // filename: 'index.html',
+            title: "ejs模板渲染",
             template: "build/server/views/template.ejs",
-            inject: "body"
+            inject: "body",
+            showHtmlWebpackPlugin: false // true:在模板页面显示`htmlWebpackPlugin`信息
         })
     ]
 };

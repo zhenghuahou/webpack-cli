@@ -2,11 +2,13 @@ import fs from "fs";
 import path from "path";
 import _ip from "ip";
 import config from "../../config";
+import manifest from '../../dist/manifest.json'
 
 const ip = _ip.address();
 
 let util = {
-    ip
+    ip,
+    manifest
 };
 
 /*
