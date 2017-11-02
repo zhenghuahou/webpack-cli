@@ -106,9 +106,18 @@ export default {
         new ExtractTextPlugin({
             filename: "[name].css"
         }),
+        // keep module.id stable when vender modules does not change
+        //https://webpack.js.org/plugins/hashed-module-ids-plugin/#src/components/Sidebar/Sidebar.jsx
+        // new webpack.HashedModuleIdsPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             name: "vendor",
             minChunks: Infinity
+        }),
+        // extract webpack runtime and module manifest to its own file in order to
+        // prevent vendor hash from being updated whenever app bundle is updated
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "manifest",
+            chunks: ["vendor"]
         }),
 
         // https://github.com/johnagan/clean-webpack-plugin

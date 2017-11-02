@@ -12,11 +12,13 @@ export default {
             })
         );
         const { port } = ctx.app;
+        console.log(' port:',port);
         await ctx.render("index", {
             title: "欢迎使用无后端开发模式",
             staticUrl: `http://${ip}:${port}`,
             vendor: manifest[`vendor.js`],
-            app: manifest[`app.js`]
+            app: manifest[`app.js`],
+            manifest: manifest[`manifest.js`]
         });
     }
 };

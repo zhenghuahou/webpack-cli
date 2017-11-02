@@ -9,10 +9,11 @@
 ``` bash
 npm run dev
 ```
-1. 本地开发的时候运行此命令,不需要启动后端服务,会自动开启本地服务。后端模板,路由在build/server中进行修改,添加
+1. 本地开发的时候运行此命令,不需要启动后端服务,会自动开启本地服务。
 2. 开发服务器启动后，双击命令行上的链接地址即可在浏览器中打开首页。你可以在`config`文件夹中修改你的开发服务器配置。
 编写代码保存，浏览器即可热刷新。
-3. 因为前端入口文件只有一个,首页server/router.js配置路由的时候也都是走通用模板,不需要建立多个后端模板文件
+3. 因为前端入口文件只有一个`build/server/views/template.ejs`,用`html-webpack-plugin`插件渲染,通过给`html-webpack-plugin`传递`showHtmlWebpackPlugin:true`可以在页面渲染的时候输出`htmlWebpackPlugin`信息
+4. 为了方便，`npm run dev`改成不走后端路由
 
 ``` bash
 npm run build
