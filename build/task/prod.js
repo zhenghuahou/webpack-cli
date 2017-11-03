@@ -28,10 +28,10 @@ function build(env) {
         console.log(
             stats.toString({
                 colors: true,
-                hash: true,
-                version: true,
-                timings: true,
-                assets: false,
+                hash: false,
+                version: false,
+                timings: false,
+                assets: true,
                 chunks: false,
                 children: false,
                 modules: false,

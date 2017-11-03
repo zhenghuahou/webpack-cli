@@ -1,0 +1,115 @@
+/**
+ * 样式重置，全局性的样式问题请一定要放在这里
+ */
+
+ html, body {
+    height: 100%;
+    user-select: none;
+    -webkit-touch-callout: none;
+    // -webkit-overflow-scrolling: touch;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    margin: 0 auto;
+    font-family: PingFang SC,Helvetica Neue,Hiragino Sans GB,Helvetica,Microsoft YaHei,Arial;
+    max-width: 720px;
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: #F1F1F1;
+    transition: 2s background-color;
+    color: #212121;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+  
+  article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, pre, button, input, select, textarea, th, td, iframe{
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul, ol {
+    list-style: none outside none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+  }
+  
+  a {
+    background-color: transparent; /* 1 */
+    -webkit-text-decoration-skip: objects; /* 2 */
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+  }
+  
+  a:active, a:hover {
+    outline: none;
+    text-decoration: none;
+  }
+  
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  
+  sup {
+    top: -0.5em;
+  }
+  
+  sub {
+    bottom: -0.25em;
+  }
+  
+  img {
+    border: none;
+    vertical-align: middle;
+  }
+  
+  pre {
+    overflow: auto;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  i {
+    font-style: normal;
+  }
+  
+  button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    vertical-align: middle;
+    appearance: none;
+    border: none;
+    outline: none;
+  }
+  
+  textarea {
+    overflow: auto;
+    resize: none;
+  }
+  
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 0.5;
+  }
+  

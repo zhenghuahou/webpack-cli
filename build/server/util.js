@@ -11,6 +11,7 @@ let util = {
     manifest
 };
 
+
 /*
 *@params {string} arrays:过滤数组
 *@params {string} fn:自定义的过滤函数
@@ -25,6 +26,9 @@ function filter(arrays, fn) {
     return arrays.filter(fn);
 }
 
+// function getManifest(){
+//     return require('../../dist/manifest.json')
+// }
 /*
 *批量把node api异步方法封装为async函数
 */
@@ -73,5 +77,6 @@ function filter(arrays, fn) {
 // }
 
 // export { readdir, filter, readFile };
+// export { filter,getManifest };
 export { filter };
 export default util;

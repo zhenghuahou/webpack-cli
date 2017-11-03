@@ -6,11 +6,13 @@
   "main": "",
   "scripts": {
     "restart": "nodemon ./build/task/dev.js --exec babel-node --presets env,stage-0 --ignore dist/",
+    "brestart": "nodemon ./build/server/main.js --exec babel-node --presets env,stage-0",
+    "srestart": " devtool  -r babel-register ./build/server/main.js -w --no-sm",
     "dev": "babel-node ./build/task/dev.js",
     "prod": "babel-node ./build/task/prod.js",
     "build": "babel-node ./build/task/build.js",
     "server": "babel-node ./build/server/main.js",
-    "start": "npm run server  &  npm run build"
+    "start": "npm run server  &  npm run dev"
   },
   "dependencies": {
     "axios": "^0.16.2",

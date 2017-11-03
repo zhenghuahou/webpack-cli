@@ -28,8 +28,9 @@ const Api = {
         await ctx.render("api", {
             title: "api接口列表",
             staticUrl: `http://${ip}:${port}`,
-            vendor: manifest[`vendor.js`],
-            app: manifest[`app.js`],
+            vendorJS: manifest[`vendor.js`],
+            appJS: manifest[`app.js`],
+            css: manifest[`app.css`],
             apiJson
         });
         return true;
@@ -38,7 +39,6 @@ const Api = {
     index: async function(ctx, next) {
         let { path: pathname } = ctx;
         const ext = path.extname(pathname);
-        console.log('api.index pathname:',pathname); 
         let done = false;
         //先找文件目录，如果文件目录不存在，则找后缀为.json文件
         if (!ext) {

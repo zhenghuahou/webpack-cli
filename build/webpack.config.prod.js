@@ -78,11 +78,11 @@ export default {
                 chalk.green.bold("[:bar] :percent ") +
                 chalk.yellow("(:elapsed seconds) :msg"),
             customSummary(buildTime) {
-                // process.stdout.write(
-                //     chalk.green.bold(
-                //         " ---------buildTime:" + buildTime + "---------\n"
-                //     )
-                // );
+                process.stdout.write(
+                    chalk.green.bold(
+                        " ---------buildTime:" + buildTime + "---------\n"
+                    )
+                );
             }
         }),
 
@@ -104,7 +104,7 @@ export default {
             __PROD__: true
         }),
         new ExtractTextPlugin({
-            filename: "[name].[contenthash].css"
+            filename: "[name].[contenthash:8].css"
         }),
         // keep module.id stable when vender modules does not change
         //https://webpack.js.org/plugins/hashed-module-ids-plugin/#src/components/Sidebar/Sidebar.jsx

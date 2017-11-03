@@ -12,7 +12,7 @@ const port = config.bkdServerPort;
 // remove webpack.optimize.UglifyJsPlugin
 webpackConfig.plugins.splice(webpackConfig.plugins.findIndex((p) => p instanceof webpack.optimize.UglifyJsPlugin), 1);
 
-// webpackConfig.watch = true;
+webpackConfig.watch = true;
 webpackConfig.output.publicPath =  `http://${ip.address()}:${port}/`;
 
 webpack(webpackConfig, function(err, stats) {
@@ -20,16 +20,14 @@ webpack(webpackConfig, function(err, stats) {
     if (err) {
         return console.error(err)
     }
-    // process.stdout.clearLine()
-    // process.stdout.cursorTo(0)
     console.log(stats.toString({
         colors: true,
-        hash: true,
+        hash: false,
         version: false,
         timings: false,
         assets: true,//true
-        chunks: true,//true
-        modules:true,//true
+        chunks:false,//true
+        modules:false,//true
         chunkModules: false,
         children: false,
         errorDetails : true

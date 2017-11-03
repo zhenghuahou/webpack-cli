@@ -8,12 +8,13 @@
     </title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" media="all" href="<%=staticUrl%>/app.css">
+    <link rel="stylesheet" media="all" href="<%=staticUrl%>/<%=css%>">
     <script>
         window.pageConfig = {
             staticUrl: "<%=staticUrl%>",
-            vendor: "<%=vendor%>",
-            app: "<%=app%>",
+            vendorJS: "<%=vendorJS%>",
+            appJS: "<%=appJS%>",
+            css: "<%=css%>",
             locals: <%-JSON.stringify(locals) %>
         }
     </script>
@@ -34,8 +35,8 @@
     <h3 class="t-r">欢迎使用无后端开发模式</h3>
     <div class="mod-app"></div>
     <script type="text/javascript" src="<%=staticUrl%>/<%=manifest%>"></script>
-    <script type="text/javascript" src="<%=staticUrl%>/<%=vendor%>"></script>
-    <script type="text/javascript" src="<%=staticUrl%>/<%=app%>"></script>
+    <script type="text/javascript" src="<%=staticUrl%>/<%=vendorJS%>"></script>
+    <script type="text/javascript" src="<%=staticUrl%>/<%=appJS%>"></script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@
   <div id="app">
     <img src="./global/assets/logo.png" width="150">
     <p class="l-box">
-    <router-link class='link' :to="{ name: 'demo' }">demo</router-link>
+    <router-link class='link' :to="{ path: '/demo' }">demo20</router-link>
     <router-link class='link' :to="{ name: 'test' }">test</router-link>
     </p>
     <router-view/>
@@ -15,7 +15,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "global/assets/base.scss"; // 全局样式重置
 #app {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -23,18 +24,9 @@ export default {
     text-align: center;
     color: #2c3e50;
     margin-top: 12px;
+    padding: 5px;
 }
 .link {
-    color: rgb(32,134,215);
-    padding: 10px;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    padding: 0 5px;
-    border-radius: 5px ;
-    line-height: 1.8;
-    margin: 1px 5px;
-    vertical-align: middle;
-    display: inline-block;
-    text-decoration:none;
+    color:$light-gray;
 }
 </style>

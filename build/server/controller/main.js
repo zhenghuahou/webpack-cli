@@ -1,6 +1,8 @@
+// import util,{getManifest} from "../util";
 import util from "../util";
-const { ip, manifest } = util;
-// console.log('【server/controller/main.js】 manifest:',manifest);
+const { ip,manifest } = util;
+
+
 export default {
     //首页
     index: async function(ctx, next) {
@@ -12,12 +14,14 @@ export default {
             })
         );
         const { port } = ctx.app;
-        console.log(' port:',port);
+        // const manifest = getManifest();
+
         await ctx.render("index", {
             title: "欢迎使用无后端开发模式",
             staticUrl: `http://${ip}:${port}`,
-            vendor: manifest[`vendor.js`],
-            app: manifest[`app.js`],
+            vendorJS: manifest[`vendor.js`],
+            appJS: manifest[`app.js`],
+            css: manifest[`app.css`],
             manifest: manifest[`manifest.js`]
         });
     }

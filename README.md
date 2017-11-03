@@ -29,13 +29,13 @@ npm run prod
 ``` bash   
 npm run server
 ```
-开启本地server服务,支持本地mock api 数据
+开启本地mock api server服务
 
 
 ``` bash   
 npm start
 ```
-同时开启本地server服务和前端自动化构建服务，在联调接口时用这条命令
+同时开启本地mock api server服务和前端自动化构建服务
 
 
 
