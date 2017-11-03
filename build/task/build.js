@@ -12,7 +12,7 @@ const port = config.bkdServerPort;
 // remove webpack.optimize.UglifyJsPlugin
 webpackConfig.plugins.splice(webpackConfig.plugins.findIndex((p) => p instanceof webpack.optimize.UglifyJsPlugin), 1);
 
-webpackConfig.watch = true;
+// webpackConfig.watch = true;
 webpackConfig.output.publicPath =  `http://${ip.address()}:${port}/`;
 
 webpack(webpackConfig, function(err, stats) {
@@ -24,12 +24,12 @@ webpack(webpackConfig, function(err, stats) {
     // process.stdout.cursorTo(0)
     console.log(stats.toString({
         colors: true,
-        hash: false,
+        hash: true,
         version: false,
         timings: false,
-        assets: false,//true
-        chunks: false,//true
-        modules:false,
+        assets: true,//true
+        chunks: true,//true
+        modules:true,//true
         chunkModules: false,
         children: false,
         errorDetails : true
@@ -37,5 +37,5 @@ webpack(webpackConfig, function(err, stats) {
     if(stats.hasErrors() || stats.hasWarnings()) {
         return console.log(chalk.yellow.bold('==================编译过程有错误或者警告=================='));
     }
-    console.log(chalk.yellow.bold("==================前端构建完成=================="));
+    console.log(chalk.yellow.bold("========前端构建完成======="));
 })
