@@ -18,7 +18,7 @@ npm run dev
 ``` bash
 npm run build
 ```
- 构建生成未压缩的代码到dist目录，方便检查打包之后，而又没有压缩的代码,没有热加载功能
+ 构建生成未压缩的代码到dist目录，方便检查打包之后，而又没有压缩的代码。没有热加载功能
     
 ``` bash   
 npm run prod
