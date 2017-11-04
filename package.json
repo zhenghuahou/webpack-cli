@@ -39,6 +39,7 @@
     "fs-extra": "*",
     "html-webpack-plugin": "^2.30.1",
     "http-proxy-middleware": "^0.17.2",
+    "import-fresh": "^2.0.0",
     "ip": "^1.1.3",
     "koa": "^2.3.0",
     "koa-router": "^7.2.1",

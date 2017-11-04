@@ -1,11 +1,18 @@
-// import util,{getManifest} from "../util";
-import util from "../util";
-const { ip,manifest } = util;
+import util,{getManifest} from "../util";
+// import util from "../util";
+import path from "path";
+const { ip } = util;
+// const { ip,manifest } = util;
 
+function cleanCache (module) {
+    var path = require.resolve(module);
+    require.cache[path] = null;
+}
 
 export default {
     //首页
     index: async function(ctx, next) {
+        
         ctx.res.setHeader(
             "keys",
             JSON.stringify({
@@ -14,7 +21,7 @@ export default {
             })
         );
         const { port } = ctx.app;
-        // const manifest = getManifest();
+        const manifest = getManifest();
 
         await ctx.render("index", {
             title: "欢迎使用无后端开发模式",

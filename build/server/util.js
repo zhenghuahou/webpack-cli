@@ -2,13 +2,16 @@ import fs from "fs";
 import path from "path";
 import _ip from "ip";
 import config from "../../config";
-import manifest from '../../dist/manifest.json'
+import importFresh from 'import-fresh';
+// const importFresh = require('import-fresh');
+// import manifest from '../../dist/manifest.json'
 
+console.log(' importFresh:',importFresh);
 const ip = _ip.address();
 
 let util = {
     ip,
-    manifest
+    // manifest
 };
 
 
@@ -26,9 +29,15 @@ function filter(arrays, fn) {
     return arrays.filter(fn);
 }
 
-// function getManifest(){
-//     return require('../../dist/manifest.json')
-// }
+
+
+function getManifest(){
+    var file = path.resolve(__dirname,"../../dist","manifest.json");
+    var mainfest = importFresh(file);
+    // console.warn(' importFresh  mainfest',mainfest);
+    return mainfest
+}
+
 /*
 *批量把node api异步方法封装为async函数
 */
@@ -77,6 +86,6 @@ function filter(arrays, fn) {
 // }
 
 // export { readdir, filter, readFile };
-// export { filter,getManifest };
-export { filter };
+export { filter,getManifest };
+// export { filter };
 export default util;
