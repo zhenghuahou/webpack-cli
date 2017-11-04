@@ -44,6 +44,18 @@ npm restart
 ```
 效果等同于`npm run dev`,只是额外用`nodemon`监听`build`目录里的代码变化,如果代码有变化则会自动重启服务
 
+
+
+``` bash   
+npm run build  distcustom
+```
+自定义输出目录为distcustom
+
+``` bash   
+npm run build  -- --nowatch
+```
+自定义输出目录为distcustom,执行一次打包后就退出
+
 ## 目录结构
 
 项目根目录

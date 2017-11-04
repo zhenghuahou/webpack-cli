@@ -5,8 +5,8 @@ import uiRouter from "@/components/router";
 import demo from "@/demo/router";
 
 Vue.use(VueRouter);
-
-let routes = [...demo, ...(__DEV__ ? uiRouter : [])];
+// let routes = [...demo, ...(__DEV__ ? uiRouter : [])];
+let routes = [...demo, ... uiRouter];
 
 console.table(routes);
 

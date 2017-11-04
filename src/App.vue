@@ -2,7 +2,7 @@
   <div id="app">
     <img src="./global/assets/logo.png" width="150">
     <p class="l-box">
-    <router-link class='link' :to="{ path: '/demo' }">demo20</router-link>
+    <router-link class='link' :to="{ name: 'demo' }">demo</router-link>
     <router-link class='link' :to="{ name: 'test' }">test</router-link>
     </p>
     <router-view/>

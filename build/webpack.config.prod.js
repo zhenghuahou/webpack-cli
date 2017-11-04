@@ -12,7 +12,10 @@ import CleanWebpackPlugin from "clean-webpack-plugin";
 import ZipWebpackPlugin from "zip-webpack-plugin";
 import { entry, alias, provide, conf, logoPath } from "./config";
 import { cssLoaders, styleLoaders } from "./util";
+import OptimizeCSSPlugin from "optimize-css-assets-webpack-plugin";
+import { argv } from "yargs";
 
+const dist = typeof argv.dist == "string" ? argv.dist : "dist";
 const srcPath = path.resolve(__dirname, "../src");
 
 const loaderOptions = {
@@ -28,7 +31,7 @@ export default {
     devtool: false,
     output: {
         hashDigestLength: 8,
-        path: `${process.cwd()}/dist`,
+        path: `${process.cwd()}/${dist}`,
         filename: "[name].[chunkhash].js",
         chunkFilename: "[name]_" + "[chunkhash]" + ".js",
         publicPath: `http://${ip.address()}/`
@@ -106,6 +109,16 @@ export default {
         new ExtractTextPlugin({
             filename: "[name].[contenthash:8].css"
         }),
+
+        // Compress extracted CSS. We are using this plugin so that possible
+        // duplicated CSS from different components can be deduped.
+        //https://github.com/NMFR/optimize-css-assets-webpack-plugin/blob/master/README.md
+        new OptimizeCSSPlugin({
+            cssProcessorOptions: {
+                safe: true
+            }
+        }),
+
         // keep module.id stable when vender modules does not change
         //https://webpack.js.org/plugins/hashed-module-ids-plugin/#src/components/Sidebar/Sidebar.jsx
         new webpack.HashedModuleIdsPlugin(),
@@ -114,7 +127,7 @@ export default {
         // prevent vendor hash from being updated whenever app bundle is updated
         //"manifest" should be placed at the end
         new webpack.optimize.CommonsChunkPlugin({
-            name: ["vendor","manifest"],
+            name: ["vendor", "manifest"],
             minChunks: Infinity
         }),
         // equal to :
