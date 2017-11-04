@@ -52,9 +52,15 @@ npm run build  distcustom
 自定义输出目录为distcustom
 
 ``` bash   
-npm run build distcustom -- --nowatch
+npm run build distcustom --banwatch
 ```
-自定义输出目录为distcustom,执行一次打包后就退出
+自定义输出目录为distcustom,执行一次打包后就退出,即不监听文件变化
+
+``` bash   
+npm run build --report
+```
+使用[webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)插件分析webpack打包生成的资源
+
 
 ## 目录结构
 
