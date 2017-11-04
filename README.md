@@ -52,7 +52,7 @@ npm run build  distcustom
 自定义输出目录为distcustom
 
 ``` bash   
-npm run build  -- --nowatch
+npm run build distcustom -- --nowatch
 ```
 自定义输出目录为distcustom,执行一次打包后就退出
 

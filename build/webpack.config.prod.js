@@ -141,7 +141,7 @@ export default {
         // }),
 
         // https://github.com/johnagan/clean-webpack-plugin
-        new CleanWebpackPlugin(["dist", "zip"], {
+        new CleanWebpackPlugin([`${dist}`, "zip"], {
             root: process.cwd(),
             verbose: false
         }),

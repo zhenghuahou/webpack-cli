@@ -10,38 +10,35 @@
 </template>
 
 <script>
-    export default {
-        name: 'ui-panel',
-        props: {
-            title: {// 是否显示Panel标题
-                type: [String, Boolean],
-                default: false
-            },
-            cname: {
-                type: null,
-                default: ''
-            }
-
+export default {
+    name: "ui-panel",
+    props: {
+        title: {
+            // 是否显示Panel标题
+            type: [String, Boolean],
+            default: false
         },
-        created() {
+        cname: {
+            type: null,
+            default: ""
         }
-    }
+    },
+    created() {}
+};
 </script>
 
 <style lang="scss">
-    @import "../../global/assets/variable.scss";
-    .panel{
-        .panel-hd{
-            padding: 0 16px;
-            color: $light-gray;
-            font-size: 12px;
-            border-top:1px solid $border-color;
-            margin-top:-1px;
-            background:$white;
-        }
-        .panel-bd{
-            border-bottom:1px solid $border-color;
-            background-color: $white;
-        }
+@import "../../global/assets/variable.scss";
+.panel {
+    padding: 5px;
+    background: $white;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    .panel-hd {
+        padding: 0 16px;
+        color: $light-gray;
+        font-size: 12px;
+        margin-top: -1px;
     }
+}
 </style>

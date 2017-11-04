@@ -18,4 +18,8 @@ export default {
 </script>
 
 <style lang="scss">
+.demo-panel{
+    line-height: 1.5;
+    margin-top: 10px;
+}
 </style>
