@@ -64,8 +64,9 @@ const hotMw = hotMiddleware(compiler, {
 });
 
 const historyMw = history({
-    verbose: false,
-    disableDotRule: false
+    verbose: true,
+    disableDotRule: false,
+    exclude:/^\/mock(?:\/.*)+/ //排除mock api url请求
 });
 
 const app = new koa();

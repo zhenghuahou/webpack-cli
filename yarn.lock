@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@koa/cors@2":
+  version "2.2.1"
+  resolved "http://registry.npm.taobao.org/@koa/cors/download/@koa/cors-2.2.1.tgz#c06a1c34d787e3cee79c0d4c20e8952d1b6d75c5"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"

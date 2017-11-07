@@ -1,20 +1,15 @@
 import fs from "fs";
 import path from "path";
-import _ip from "ip";
 import config from "../../config";
 import importFresh from 'import-fresh';
-// const importFresh = require('import-fresh');
 // import manifest from '../../dist/manifest.json'
 
-console.log(' importFresh:',importFresh);
-const ip = _ip.address();
-
 let util = {
-    ip,
+    ip:config.ip,
     // manifest
 };
 
-
+// console.log(' util:',util);
 /*
 *@params {string} arrays:过滤数组
 *@params {string} fn:自定义的过滤函数

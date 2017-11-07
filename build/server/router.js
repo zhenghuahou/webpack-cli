@@ -16,6 +16,15 @@ export default function(app) {
 
     app.port = app.port || devServerPort;
 
+    // router.use('*', function(ctx, next) {
+    //   const {res} = ctx;
+    //   ctx.set({
+    //     'Access-Control-Allow-Origin':'*',
+    //     "X-Powered-By":'node + koa2'
+    //   });
+    //   return next();
+    // });
+
     //首页
     router.get("/", main.index);
 
@@ -23,7 +32,7 @@ export default function(app) {
     router.get("/mock(/.+)?", api.index);
 
     //其他的路径都定位到首页
-    router.get(/^[\w|\/]+$/,main.index);
+    router.get(/^[\w|\/]+$/, main.index);
 
     app.use(router.routes());
     app.use(router.allowedMethods());
