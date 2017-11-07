@@ -5,10 +5,12 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import ManifestPlugin from "webpack-assets-manifest";
 import chalk from "chalk";
 import path from "path";
-import ip from "ip";
 import { timestamp } from "./util";
 import { entry, alias, provide, loader, logoPath } from "./config";
+import mineConfig from "../config";
 import { cssLoaders, styleLoaders } from "./util";
+
+const { ip, bkdServerPort: port } = mineConfig;
 
 const loaderOptions = {
     sourceMap: false,
@@ -100,6 +102,9 @@ const config = {
             "process.env": {
                 NODE_ENV: '"development"'
             },
+            __BASEAPI__:JSON.stringify(`http://${ip}:${port}`),
+            // __IP__:JSON.stringify(ip),
+            // __PORT__:port,
             __DEV__: true,
             __PROD__: false
         }),
@@ -123,7 +128,7 @@ const config = {
         //https://github.com/jantimon/html-webpack-plugin
         new HtmlWebpackPlugin({
             chunks: ["vendor", "app"],
-            title: "ejs模板渲染",
+            title: "首页",
             template: "build/server/views/template.ejs",
             inject: "body",
             showHtmlWebpackPlugin: false // true:在模板页面显示`htmlWebpackPlugin`信息

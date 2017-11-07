@@ -1,42 +1,53 @@
 <template>
   <div class="demo">
-      {{msg}}
+     接口返回数据:<br> {{msg}}
   </div>
 </template>
 
 <script>
+import Api from "../api";
+
 export default {
-  name: 'demo',
-  data () {
-    return {
-      msg: 'my vue spa demo'
+    name: "demo",
+    data() {
+        return {
+            msg: "loading..."
+        };
+    },
+    mounted() {
+        Api("testApi")({
+            params: {
+                firstName: "h"
+            }
+        })(resp => {
+            this.msg = resp;
+        });
     }
-  }
-}
+};
 </script>
 
 <style lang="scss">
-.demo{
-    width:80%;
+.demo {
+    width: 80%;
     margin: 10px auto;
-    border:1px dashed darkkhaki;
+    border: 1px dashed darkkhaki;
     padding: 10px;
-    &:before{
-        content:'';
-        display:inline-block;
+    &:before {
+        content: "";
+        display: inline-block;
         height: 100%;
-        width:54px;
-        height:54px;
-        background: url('../assets/demo.png') center top  no-repeat;
+        width: 54px;
+        height: 54px;
+        background: url("../assets/demo.png") center top no-repeat;
         background-size: contain;
         vertical-align: middle;
     }
 }
 
 .m-toast-icon {
-  font-size: 32px;
-  ~.m-toast-msg {
-    min-width: 68px;
-  }
+    font-size: 32px;
+    ~ .m-toast-msg {
+        min-width: 68px;
+    }
 }
 </style>
