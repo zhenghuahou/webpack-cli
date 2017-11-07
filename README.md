@@ -1,5 +1,5 @@
 ## 实现
-+ vue2 + vuex + vue-router   SPA
++ vue2 + vuex + vue-router + axios  SPA
 + koa2 + koa-router + lowdb + ejs 模板
 + webpack3 + HMR
 + 模拟后端 + 环境配置 + 打包 
