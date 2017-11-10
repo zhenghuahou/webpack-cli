@@ -19,7 +19,7 @@ const mutations = {
 };
 
 export default {
-    namespaced: true,
+    namespaced: true,// namespaced默认是false
     state,
     getters,
     actions,
