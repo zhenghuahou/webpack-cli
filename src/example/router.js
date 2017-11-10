@@ -1,5 +1,5 @@
-const panel = () => import(/* webpackChunkName: "panel" */ './panel/demo')
-const grid = () => import(/* webpackChunkName: "grid" */ './grid/demo')
+const panel = () => import(/* webpackChunkName: "panel" */ './pages/panel')
+const grid = () => import(/* webpackChunkName: "grid" */ './pages/grid')
 
 //ui demo页面
 const demo = () => import(/* webpackChunkName: "demo" */ './demo')
