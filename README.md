@@ -76,12 +76,17 @@ npm run build --report
 |---config 项目配置  
 |---node_modules node模块  
 |---src 应用源码目录  
-|　　|---demo 业务级文件入口
+|　　|---test 业务级文件入口
 |　　|　　|---assets 业务资源图片以及样式 
 |　　|　　|---components 业务组件  
 |　　|　　|---views 业务入口 
 |　　|　　|---api.js  api调用
-|　　|　　|---router.js 业务路由 
+|　　|　　|---router.js 业务路由
+|　　|---example components组件demo案例目录  
+|　　|　　|---pages  demo案例
+|　　|　　|---config.json  demo路由相关配置
+|　　|　　|---demos.vue demo入口文件
+|　　|　　|---router.js demo路由 
 |　　|---global 全局性资源  
 |　　|　　|---assets   图片以及css文件  
 |　　|　　|---iconfont 字体图标 
