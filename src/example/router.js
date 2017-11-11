@@ -1,31 +1,31 @@
-const panel = () => import(/* webpackChunkName: "panel" */ './pages/panel')
-const grid = () => import(/* webpackChunkName: "grid" */ './pages/grid')
+import config from "./config.json";
 
-//ui demo页面
-const demo = () => import(/* webpackChunkName: "demo" */ './demo')
+// const panel = () => import(/* webpackChunkName: "panel" */ "./pages/panel");
+// const grid = () => import(/* webpackChunkName: "grid" */ "./pages/grid");
 
-export default [{
-        path:'/demo',
-        name:'demo',
-        meta:{
-          title:'ui demo页面',
-        },
-        component: demo
-    },  
-    {
-    path: '/demo/panel',
-    name: 'demo-panel',
-    component: panel,
+//example页面
+const example = () => import(/* webpackChunkName: "demo" */ "./demos");
+
+const registerRoute = config => {
+    return config.map(({ path, name, meta = {} }) => ({
+        path: `/example${path}`,
+        name,
+        component: () =>
+            import(`./pages${path}`),
+        meta
+    }));
+};
+
+const routes = registerRoute(config);
+routes.unshift({
+    path: "/example",
+    name: "example",
     meta: {
-      title: 'demo-panel 页面'
-    }
-  },
-  {
-    path: '/demo/grid',
-    name: 'demo-grid',
-    component: grid,
-    meta: {
-      title: 'demo-grid 页面'
-    }
-  }
-];
+        title: "example页面"
+    },
+    component: example
+});
+
+console.warn(" routes:", routes);
+
+export default routes;

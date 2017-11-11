@@ -1,6 +1,6 @@
 <template>
    <div class="demo-panel">
-       <p>components/panel/demo.vue</p>
+        <p>{{$route.path}}.vue</p>
        <ui-panel>
            <p>panel组件</p>
        </ui-panel>
@@ -19,7 +19,7 @@ export default {
 
 <style lang="scss">
 .demo-panel{
-    line-height: 1.5;
-    margin-top: 10px;
+    line-height: 2;
+    padding: 10px;
 }
 </style>

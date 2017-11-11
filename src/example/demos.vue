@@ -1,15 +1,11 @@
 <template>
   <div class="demo-box">
-    <div  class="demo-list">
       <h3>组件列表</h3>
-      <ul>
+      <ul class="demo-list">
         <li v-for="(route, i) in routes.slice(1)" :key="i"  >
-          
           <router-link class="link" :to="{ path: route.path,query: { time: +new Date }}">{{route.name}}组件</router-link>
-
         </li>
       </ul>
-    </div>
   </div>
 </template>
 
@@ -38,7 +34,8 @@ export default {
     padding:10px;
     margin: 0 10px;
   }
-  .demo-list{
+  .demo-box{
+    padding: 10px;
     .link{
       background-color: transparent;
       border:none;

@@ -1,0 +1,12 @@
+[{
+    "path": "/grid",
+    "name": "Grid",
+    "meta":{
+        "title":"grid组件示例"
+    }
+  },
+  {
+    "path": "/panel",
+    "name": "Panel"
+  }
+]
