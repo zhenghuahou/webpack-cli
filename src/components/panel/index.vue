@@ -10,6 +10,7 @@
 </template>
 
 <script>
+// console.error('panel');
 export default {
     name: "ui-panel",
     props: {

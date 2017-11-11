@@ -1,14 +1,25 @@
 <template>
   <div class="demo">
      接口返回数据:<br> {{msg}}
+        <grid label='test'>
+            <p>grid组件</p>
+        </grid>
+        <!--<panel>
+           <p>panel组件</p>
+       </panel>-->
   </div>
 </template>
 
 <script>
 import Api from "../api";
+import components, { Grid, Panel } from "@/components";
 
 export default {
     name: "demo",
+    components: {
+        grid: Grid,
+        panel: Panel
+    },
     data() {
         return {
             msg: "loading..."

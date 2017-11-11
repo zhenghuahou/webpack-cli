@@ -2,11 +2,11 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import uiRouter from "@/example/router";
-import demo from "@/demo/router";
+import testRouter from "@/test/router";
 
 Vue.use(VueRouter);
-// let routes = [...demo, ...(__DEV__ ? uiRouter : [])];
-let routes = [...demo, ... uiRouter];
+// let routes = [...testRouter, ...(__DEV__ ? uiRouter : [])];
+let routes = [...testRouter, ... uiRouter];
 
 console.table(routes);
 

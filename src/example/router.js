@@ -26,6 +26,4 @@ routes.unshift({
     component: example
 });
 
-console.warn(" routes:", routes);
-
 export default routes;

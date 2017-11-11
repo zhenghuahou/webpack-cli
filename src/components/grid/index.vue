@@ -11,6 +11,7 @@
 </template>
 
 <script>
+// console.error('grid');
 export default {
     name:'ui-grid',
     props: {
