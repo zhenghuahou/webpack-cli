@@ -4,7 +4,6 @@
 + webpack3 + HMR
 + 模拟后端 + 环境配置 + 打包 
 + ES6+构建，ES6+代码
-+ [BUI 文档](http://git.pptv.com/bipteam/bui)
 
 ## 使用方法
 ``` bash
