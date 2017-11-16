@@ -4,6 +4,8 @@ import ExtractTextPlugin from "extract-text-webpack-plugin";
 import ProgressBarPlugin from "progress-bar-webpack-plugin";
 import WebpackNotifierPlugin from "webpack-build-notifier";
 import ManifestPlugin from "webpack-assets-manifest";
+import InlineManifestWebpackPlugin from "inline-manifest-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import autoprefixer from "autoprefixer";
 import postcssPxtorem from "postcss-pxtorem";
 import ip from "ip";
@@ -14,7 +16,7 @@ import { entry, alias, provide, conf, logoPath } from "./config";
 import { cssLoaders, styleLoaders } from "./util";
 import OptimizeCSSPlugin from "optimize-css-assets-webpack-plugin";
 import { argv } from "yargs";
-
+import shelljs from 'shelljs';
 const dist = typeof argv.dist == "string" ? argv.dist : "dist";
 const srcPath = path.resolve(__dirname, "../src");
 
@@ -125,7 +127,7 @@ export default {
 
         // extract webpack runtime and module manifest to its own file in order to
         // prevent vendor hash from being updated whenever app bundle is updated
-        //"manifest" should be placed at the end
+        // "manifest" should be placed at the end
         new webpack.optimize.CommonsChunkPlugin({
             name: ["vendor", "manifest"],
             minChunks: Infinity
@@ -160,6 +162,20 @@ export default {
                 warnings: false,
                 drop_console: true
             }
+        }),
+        //https://github.com/jantimon/html-webpack-plugin
+        new HtmlWebpackPlugin({
+            title: "PPGrowth",
+            template: "build/server/views/template.ejs",
+            minify: {
+                minifyJS: true,
+                removeComments: true,
+                removeEmptyAttributes: true
+            },
+            showHtmlWebpackPlugin: false // true:在模板页面显示`htmlWebpackPlugin`信息
+        }),
+        new InlineManifestWebpackPlugin({
+            name: "webpackManifest"
         })
     ]
 };

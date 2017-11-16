@@ -5,6 +5,7 @@ import path from "path";
 import webpack from "webpack";
 import { devMiddleware, hotMiddleware } from "koa-webpack-middleware";
 import history from "../plugins/historyApiFallback";
+import favicon from "../plugins/favicon";
 
 import serve from "koa-static";
 import views from "koa-views";
@@ -64,11 +65,16 @@ const hotMw = hotMiddleware(compiler, {
 });
 
 const historyMw = history({
-    verbose: true,
+    verbose: false,
     disableDotRule: false,
     exclude:/^\/mock(?:\/.*)+/ //排除mock api url请求
 });
 
+const faviconMw = favicon({
+    // path:'src/fav.gif',
+    path:'fav.gif',
+    // maxAge:300 //单位s
+});
 const app = new koa();
 
 //historyMw要放在最上面
@@ -76,6 +82,10 @@ app.use(historyMw);
 
 app.use(devMw);
 app.use(hotMw);
+
+//serving a favicon
+app.use(faviconMw);
+
 
 //开发模式 不走后端路由
 // app.use(

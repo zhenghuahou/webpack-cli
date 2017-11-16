@@ -7,6 +7,8 @@ import chalk from "chalk";
 import webpackConfig from "../webpack.config.prod";
 import config from "../../config";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+// import yargs from 'yargs';
+// const argv = yargs.argv;
 
 const port = config.bkdServerPort;
 

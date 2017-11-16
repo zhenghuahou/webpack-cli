@@ -4,6 +4,7 @@
 + webpack3 + HMR
 + 模拟后端 + 环境配置 + 打包 
 + ES6+构建，ES6+代码
++ [BUI 文档](http://git.pptv.com/bipteam/bui)
 
 ## 使用方法
 ``` bash
@@ -29,20 +30,20 @@ npm run prod
 ``` bash   
 npm run server
 ```
-开启本地mock api server服务
+开启本地mock api server服务,如果没有dist/manifest.json文件,则会在额外执行一次`npm run build --banwatch`打包前端代码到硬盘,如果dist/manifest.json文件已经存在,则不会再执行`npm run build --banwatch`
 
 
 ``` bash   
 npm start
 ```
-同时开启本地mock api server服务和前端自动化构建服务
+同时开启本地mock api server服务和前端自动化构建服务(带有前端热加载功能)
 
 
 
 ``` bash   
-npm restart
+npm watch
 ```
-效果等同于`npm run dev`,只是额外用`nodemon`监听`build`目录里的代码变化,如果代码有变化则会自动重启服务
+用`nodemon`监听`build`目录里的代码变化(即监听构建代码),如果代码有变化则会自动重启服务
 
 
 

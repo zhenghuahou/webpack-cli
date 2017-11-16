@@ -1,5 +1,5 @@
 /*
-  后端服务
+  mock后端服务
 */
 import path from "path";
 import ip from "ip";
@@ -28,7 +28,7 @@ router(app);
 
 app.listen(app.port, () => {
     console.warn(
-        `server at ${chalk.magenta.underline(
+        `mock-server at ${chalk.magenta.underline(
             `http://${ip.address()}:${bkdServerPort}/`
         )}`
     );

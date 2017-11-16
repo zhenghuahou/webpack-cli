@@ -1,32 +1,26 @@
 <template>
   <div id="app">
-    <img src="./global/assets/logo.png" width="150">
-    <p class="l-box">
-    <router-link class='link' :to="{ name: 'example' }">demo</router-link>
-    <router-link class='link' :to="{ name: 'test' }">test</router-link>
-    </p>
+    <v-header></v-header>
     <router-view/>
   </div>
 </template>
 
 <script>
+import {Header} from '@/components'
 export default {
-    name: "app"
+    name: "app",
+    data () {
+      return {
+        // user: {}
+      };
+    },
+    components:{
+        'vHeader':Header
+    }
 };
 </script>
 
 <style lang="scss">
 @import "global/assets/base.scss"; // 全局样式重置
-#app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 12px;
-    padding: 5px;
-}
-.link {
-    color:$light-gray;
-}
+
 </style>

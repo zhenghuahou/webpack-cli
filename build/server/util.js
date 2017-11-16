@@ -1,15 +1,25 @@
 import fs from "fs";
 import path from "path";
+import shell from "shelljs";
+import chalk from "chalk";
 import config from "../../config";
-import importFresh from 'import-fresh';
-// import manifest from '../../dist/manifest.json'
+import importFresh from "import-fresh";
+
+try {
+    var manifest = require("../../dist/manifest.json");
+} catch (e) {
+    const cmd = `npm run build --banwatch`;
+    console.log(`【${chalk.redBright(`dist/manifest.json`)}】文件不存在>>>运行${chalk.redBright(cmd)}`);
+    // Run external tool synchronously
+    shell.exec(cmd, { silent: true });
+}
+// console.warn(' manifest：',manifest);
 
 let util = {
-    ip:config.ip,
-    // manifest
+    ip: config.ip,
+    manifest
 };
 
-// console.log(' util:',util);
 /*
 *@params {string} arrays:过滤数组
 *@params {string} fn:自定义的过滤函数
@@ -24,13 +34,11 @@ function filter(arrays, fn) {
     return arrays.filter(fn);
 }
 
-
-
-function getManifest(){
-    var file = path.resolve(__dirname,"../../dist","manifest.json");
+function getManifest() {
+    var file = path.resolve(__dirname, "../../dist", "manifest.json");
     var mainfest = importFresh(file);
     // console.warn(' importFresh  mainfest',mainfest);
-    return mainfest
+    return mainfest;
 }
 
 /*
@@ -81,6 +89,6 @@ function getManifest(){
 // }
 
 // export { readdir, filter, readFile };
-export { filter,getManifest };
+export { filter, getManifest };
 // export { filter };
 export default util;

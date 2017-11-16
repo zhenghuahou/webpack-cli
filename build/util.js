@@ -61,6 +61,7 @@ export function cssLoaders(options = {}) {
     return {
         css: generateLoaders(),
         sass: generateLoaders("sass", { indentedSyntax: false }),
+        less : generateLoaders("less", {}),
         scss: generateLoaders("sass")
     };
 }

@@ -11,7 +11,7 @@ const Api = {
         let dir = path.join(__dirname, "../api/", ctx.path);
 
         const files = await util.readdir(dir).catch(function(err) {
-            console.dir(err);
+            // console.dir(err);
             throw err
         });
         if (files && !files.length) {
@@ -45,7 +45,7 @@ const Api = {
             try{
                 done = await Api.renderList(ctx, next);
             }catch(e){
-                console.error(`该目录不存在:【${e.path}】`);
+                // console.error(`该目录不存在:【${e.path}】`);
             }
             //如果文件目录不存在，则查找后缀为.json的文件
             pathname = `${pathname}.json`;

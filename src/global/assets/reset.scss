@@ -8,17 +8,15 @@
     -webkit-touch-callout: none;
     // -webkit-overflow-scrolling: touch;
     text-size-adjust: 100%;
+    min-width: 1020px;
     -webkit-tap-highlight-color: transparent;
   }
   
   body {
     margin: 0 auto;
     font-family: PingFang SC,Helvetica Neue,Hiragino Sans GB,Helvetica,Microsoft YaHei,Arial;
-    max-width: 720px;
     font-size: 14px;
     line-height: 1.5;
-    background-color: #F1F1F1;
-    transition: 2s background-color;
     color: #212121;
   }
   
