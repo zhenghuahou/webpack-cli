@@ -108,3 +108,16 @@ npm run build --report
 |---postcss.config.js postcss插件配置  
 |---README.md 项目自述  
 ``` 
+
+##温馨提示
+vscode安装的`vetur`插件默认不格式化html,格式化html,要在`首选项`下的`设置`中配置:
+```javascript
+//https://github.com/vuejs/vetur/issues/99
+"vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      // js-beautify-html settings, see https://github.com/vuejs/vetur/blob/master/server/src/modes/template/services/htmlFormat.ts
+      "wrap_attributes": "force-aligned"
+    }
+  }
+```
