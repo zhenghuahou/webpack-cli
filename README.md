@@ -110,7 +110,7 @@ npm run build --report
 ``` 
 
 ## 温馨提示
-vscode安装的`vetur`插件默认不格式化html,格式化html,要在`首选项`下的`设置`中配置:
+vscode安装的`vetur`插件默认不格式`html`,格式化`html`,要在`首选项`下的`设置`中配置:
 ```js
 //https://github.com/vuejs/vetur/issues/99
 "vetur.format.defaultFormatter.html": "js-beautify-html",
