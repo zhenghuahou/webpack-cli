@@ -43,12 +43,10 @@ npm start
 同时开启本地mock api server服务和前端自动化构建服务(带有前端热加载功能)
 
 
-
 ``` bash   
 npm watch
 ```
 用`nodemon`监听`build`目录里的代码变化(即监听构建代码),如果代码有变化则会自动重启服务
-
 
 
 ``` bash   
