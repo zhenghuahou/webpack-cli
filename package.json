@@ -13,7 +13,7 @@
     "watch": "nodemon ./build/server/main.js --exec babel-node --presets env,stage-0"
   },
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.21.1",
     "element-ui": "^2.0.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
